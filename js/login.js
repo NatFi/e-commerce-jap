@@ -46,7 +46,7 @@ function onSignIn(googleUser) {
     
 }
 
-function onload() {
+function onLoad() {
 	gapi.load("auth2", function() {
 		gapi.auth2.init();
 	});
