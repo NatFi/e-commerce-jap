@@ -40,7 +40,7 @@ function onSignIn(googleUser) {
 	usuario.nombre=profile.getGivenName();
 	usuario.correo=profile.getEmail();
 	usuario.estado="conectado";
-	location.href = "pagina.html";
+	location.href = "index.html";
 
 	localStorage.setItem("usuario",JSON.stringify(usuario));
     
