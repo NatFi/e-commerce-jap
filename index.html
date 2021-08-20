@@ -12,6 +12,12 @@
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
+     <!---------google----------->
+		<script src="https://apis.google.com/js/platform.js?onload=onload" async defer></script>
+		<meta name="google-signin-client_id" content="295615353532-3h8blho3nf5msuf0knf8bg7o68r13flk.apps.googleusercontent.com"/>
+		<meta name="google-signin-scope" content="profile email" />
+		<!-------------------------->
+
   </head>
   <body>
     <nav class="site-header sticky-top py-1 bg-dark">
@@ -21,6 +27,7 @@
         <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
         <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
         <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
+        <button class="btn-success" type="submit" onclick="desconectar();">Desconectar</button>
       </div>
     </nav>
     <main role="main">

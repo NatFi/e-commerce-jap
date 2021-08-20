@@ -1,0 +1,122 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+		"Lucida Sans", Arial, sans-serif;
+}
+
+
+body {
+	height: 100px;
+	background-color: rgb(14, 1, 20);
+	display: flex; 
+    justify-content: center;
+	align-items: center;
+	
+    background-repeat: no-repeat;
+    background: linear-gradient(to right, rgb(223, 245, 248), rgba(255,255,255,0)), url("https://www.enretail.com/wp-content/uploads/2018/03/eCommerce2.jpg");
+    position: relative;
+	background-size:cover;
+}
+
+
+.login {
+	height: 600px;
+	position: absolute;
+    margin-right: 850px;
+    margin-top: 40px;
+}
+
+
+.logojap {
+    width:700px;
+    margin-right: 730px;
+    margin-top: 230px;
+
+} 
+
+.principal {
+    width: 70px;
+	height: 70px;
+	margin-left: 1000px;
+	margin-top: 500px;
+}
+
+
+.formulario {
+	width: 450px;
+	height: 350px;
+	display:block;
+	position: absolute;
+	background-color: rgba(205, 232, 245, 0.336);
+	border: none;
+	border-radius: 20px;
+	padding: 40px 40px;
+	top: 500px;
+	left: 999px;
+	text-align: center;
+	box-shadow: beige 1px 1px 10px 1px;
+}
+
+.formulario input,label,button {
+	display: block;
+	width: 100%;
+	margin: 15px 3px 3px;
+}
+
+.formulario input {
+	height: 40px;
+	border: none;
+	border-radius: 25px;
+	padding: 2px 5px 5px 25px;
+	outline: none;
+	background: linear-gradient(rgb(116, 194, 230), transparent);
+	color: rgb(1, 16, 20);
+}
+
+.formulario button {
+	margin-top: 20px;
+	cursor: pointer;
+	border: none;
+	height: 40px;
+	background-color: transparent;
+	box-shadow: 1px 10px 10px 5px rgb(128, 196, 233);
+	color: rgb(53, 62, 70);
+	border-radius: inherit;
+	outline: none;
+	text-transform: uppercase;
+    
+}
+
+.formulario button:hover {
+	background-color: rgb(128, 196, 233);
+	text-transform: inherit;
+	box-shadow: inherit;
+	font-variant: small-caps;
+}
+
+
+
+.ingresa {
+	color: rgb(65, 69, 114);
+    font-family:'Arial Narrow';
+	font-weight:bold;
+	text-shadow: rgb(241, 241, 245)  2px 3px 3px;
+}
+
+
+input::placeholder {
+	color: rgb(4, 36, 51);
+	font-style: oblique;
+}
+
+input:valid {
+	background-color: rgb(181, 238, 240);
+}
+
+
+
+
+
+
