@@ -12,6 +12,7 @@ function verificar() {
 		usuario.nombre = nom.value;
 		usuario.correo = mail.value;
 		usuario.estado = "conectado";
+		location.href = "index.html";
 
 		localStorage.setItem("usuario", JSON.stringify(usuario));
 		//localStorage.setItem("email", JSON.stringify(email));

@@ -1,3 +1,28 @@
+//--------------- Desconectar ----------------
+
+function desconectar() {
+	localStorage.removeItem("usuario");
+	location.href = "login.html";
+	signOut();
+}
+
+
+function signOut() {
+	var auth2 = gapi.auth2.getAuthInstance();
+	auth2.signOut().then(function () {
+		console.log("User signed out.");
+	});
+}
+
+function onLoad() {
+	gapi.load("auth2", function () {
+		gapi.auth2.init();
+	});
+}
+
+//------------------------------------------------------------
+
+
 const CATEGORIES_URL = "https://japdevdep.github.io/ecommerce-api/category/all.json";
 const PUBLISH_PRODUCT_URL = "https://japdevdep.github.io/ecommerce-api/product/publish.json";
 const CATEGORY_INFO_URL = "https://japdevdep.github.io/ecommerce-api/category/1234.json";
@@ -44,31 +69,15 @@ var getJSONData = function(url){
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
-});
+
+	let usuario = JSON.parse(localStorage.getItem("usuario"));
+	
+	document.getElementById("usuario").innerHTML="Hola" +" "+ usuario.nombre + "!";
+  
+  });
 
 
 
 
 
 
-//--------------- Desconectar ----------------
-
-function desconectar() {
-	localStorage.clear();
-	location.href = "login.html";
-	signOut();
-}
-
-
-function signOut() {
-	var auth2 = gapi.auth2.getAuthInstance();
-	auth2.signOut().then(function () {
-		console.log("User signed out.");
-	});
-}
-
-function onLoad() {
-	gapi.load("auth2", function () {
-		gapi.auth2.init();
-	});
-}
