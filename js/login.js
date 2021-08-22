@@ -62,24 +62,24 @@ const correo = document.getElementById("correo");
 nombre.addEventListener("keyup", function (eventn) {
 	let nom = nombre.value.length;
 	if (nom >= 1 && nom <= 3) {
-		principal.src = "Img/user1.png";
+		principal.src = "img/user1.png";
 	} else if (nom >= 4 && nom <= 15) {
-		principal.src = "Img/user2.png";
+		principal.src = "img/user2.png";
 	} else if (nom === 0) {
-		principal.src = "Img/principal.png";
+		principal.src = "img/principal.png";
 	}
 });
 
 correo.addEventListener("keyup", function (eventc) {
 	let corr = correo.value.length;
 	if (corr >= 1 && corr <= 3) {
-		principal.src = "Img/corr.png";
+		principal.src = "img/corr.png";
 	} else if (corr >= 4 && corr <= 7) {
-		principal.src = "Img/corr@.png";
+		principal.src = "img/corr@.png";
 	} else if (corr >= 8 && corr <= 20) {
-		principal.src = "Img/corraz.png";
+		principal.src = "img/corraz.png";
 	} else if (corr === 0) {
-		principal.src = "Img/principal.png";
+		principal.src = "img/principal.png";
 	}
 });
 
@@ -89,5 +89,6 @@ correo.addEventListener("keyup", function (eventc) {
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
+
 
 });
