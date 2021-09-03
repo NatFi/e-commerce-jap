@@ -15,7 +15,7 @@ body {
 	align-items: center;
 	
     background-repeat: no-repeat;
-    background: linear-gradient(to right, rgb(223, 245, 248), rgba(255,255,255,0)), url("https://www.enretail.com/wp-content/uploads/2018/03/eCommerce2.jpg");
+    background: linear-gradient(to right, rgb(234, 253, 255), rgba(255,255,255,0)), url("../img/fd.jpg");
     position: relative;
 	background-size:cover;
 }
@@ -53,7 +53,7 @@ body {
 	border: none;
 	border-radius: 20px;
 	padding: 40px 40px;
-	top: 500px;
+	top: 480px;
 	left: 999px;
 	text-align: center;
 	box-shadow: beige 1px 1px 10px 1px;
@@ -113,6 +113,10 @@ input::placeholder {
 
 input:valid {
 	background-color: rgb(181, 238, 240);
+}
+.error{
+	font-size: 11px;
+	color: darkred;
 }
 
 
