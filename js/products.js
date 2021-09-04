@@ -67,13 +67,27 @@ document.addEventListener("DOMContentLoaded", function (e) {
 		precioDesc();
 	});
 
-    document.getElementById("min").addEventListener("change",()=>{  //evento min
-		min(); //mostrarProductos(prodData);
+    document.getElementById("relevancia").addEventListener("click",()=>{  //evento mayor relevancia
+		relevancia();
 	});
 
-    document.getElementById("max").addEventListener("change",()=>{  //evento max
-		max(); //mostrarProductos(prodData);
+    document.getElementById("min").addEventListener("change",()=>{  //evento min al usar flechas
+		min();
 	});
+
+    document.getElementById("min").addEventListener("keyup",()=>{  //evento min al escribir
+		min();
+	});
+
+    document.getElementById("max").addEventListener("change",()=>{  //evento max al usar flechas
+		max();
+	});
+
+    document.getElementById("max").addEventListener("keyup",()=>{  //evento max al escribir
+		max();
+	});
+
+
 });
 //**************************************************************************************************//
 
@@ -89,7 +103,7 @@ function buscar() {
 }
 
 
-//-------------------------- función A-Z ------------------------------
+//-------------------------- ordenar por NOMBRE ------------------------------
 function az(){
     prodData.sort((a,b)=>{
         if (a.name < b.name){
@@ -104,9 +118,7 @@ function az(){
     });
     mostrarProductos(prodData);
 }
-
-
-//-------------------------- función Z-A ------------------------------
+//---------------
 function za(){
     prodData.sort((a,b)=>{
         if (a.name > b.name){
@@ -122,37 +134,52 @@ function za(){
     mostrarProductos(prodData);
 }
 
-//--------------------------funcion precioAsc--------------------------
+//--------------------------ordenar por PRECIO y RELEVANCIA--------------------------
 function precioAsc(){
     prodData.sort((a,b)=>{
         return a.cost-b.cost;   
     });
     mostrarProductos(prodData);
 }
-//--------------------------funcion precioDesc-------------------------
+//--------------------------
 function precioDesc(){
     prodData.sort((a,b)=>{
         return b.cost-a.cost;   
     });
     mostrarProductos(prodData);
 }
-
-//--------------------------funciones min-max------------------------------
-
-let minvalue = parseInt(document.getElementById("min").value);
-let maxvalue = parseInt(document.getElementById("max").value);
-
-
-function min2(prodData){
-    return prodData >= minvalue
+//------------------------
+function relevancia(){
+    prodData.sort((a,b)=>{
+        return b.soldCount-a.soldCount;   
+    });
+    mostrarProductos(prodData);
 }
+//-------------------------------FILTRAR por U$D------------------------------------
+
+
 function min(){
-mostrarProductos(prodData).filter(min);
-}
+    let maxvalue = parseInt(document.getElementById("max").value);
 
-
-function max(prodData){
-    if (product.cost <= maxvalue){
-        mostrarProductos(prodData);
-    };
+    let minvalue = parseInt(document.getElementById("min").value);
+	let filtrado = prodData.filter((product)=>{  
+		return product.cost >= minvalue && product.cost <= maxvalue;
+	});
+	mostrarProductos(filtrado);
 };
+//----------
+function max(){
+    let minvalue = parseInt(document.getElementById("min").value);
+
+    let maxvalue = parseInt(document.getElementById("max").value);
+    let filtrado = prodData.filter((product)=>{
+        return product.cost <= maxvalue && product.cost >= minvalue;
+    });
+    mostrarProductos(filtrado);
+};
+
+function limpiar(){
+    document.getElementById("min").value= "";
+    document.getElementById("max").value= "";
+    mostrarProductos(prodData);
+}

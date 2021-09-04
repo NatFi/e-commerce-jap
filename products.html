@@ -22,7 +22,8 @@
 
     <!---------google----------->
 		<script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
-		<meta name="google-signin-client_id" content="1000225040922-unmbjuvte1t4pq8t354ib9lnitg3dr9i.apps.googleusercontent.com"/>
+    <!--GIT--> <meta name="google-signin-client_id" content="295615353532-3h8blho3nf5msuf0knf8bg7o68r13flk.apps.googleusercontent.com"/> 
+		<!--LOCAL <meta name="google-signin-client_id" content="1000225040922-unmbjuvte1t4pq8t354ib9lnitg3dr9i.apps.googleusercontent.com"/> -->
 		<meta name="google-signin-scope" content="profile email" />
 		<!-------------------------->
     <script src="js/oAuth.js"></script>
@@ -58,9 +59,20 @@
           <div class="col text-right">
             <div class="btn-group-toggle mb-4" data-toggle="buttons">
               <!-----------------------Buscador---------------------->
-              <label class="btn btn-light"><i class="fas fa-search"></i>
+              <label class="btn btn-light"><i class="fa fa-search"></i>
                 <input type="search" id="buscador" placeholder="Busca tu producto..."/>  <!--placeholder="  Buscar productos   &#x2315"-->
               </label>
+
+              <!------------------Filtrar por precio------------------>
+              <label class="btn btn-light"><i class="fa fa-search-minus"></i><i class="fa fa-dollar-sign"></i>
+                <input type="number" id="min" placeholder="Ingrese valor mínimo">
+              </label>
+
+              <label class="btn btn-light"><i class="fa fa-search-plus"></i><i class="fa fa-dollar-sign"></i>
+                <input type="number" id="max" placeholder="Ingrese valor máximo">
+              </label>
+
+              <button class="btn btn-light" id="limpiar" onclick="limpiar();"><i class="fa fa-eraser"></i></button>
 
               <!-------------------Orden alfabetico------------------>
               <label class="btn btn-light float-left" id="AZ" ><i class="fas fa-sort-alpha-up"></i> 
@@ -71,24 +83,18 @@
                 <input type="radio" name="options" autocomplete="off">
               </label>
 
-              <!-----------------Ordenar por precio------------------->
-              <label class="btn btn-light float-left" id="$asc" ><i class="fas fa-sort-numeric-up"></i> 
+              <!-------------Ordenar por precio y relevancia---------->
+              <label class="btn btn-light float-left" id="$asc" ><i class="fas fa-sort-numeric-up"></i>U$D 
                 <input type="radio" name="options" autocomplete="off" checked>
               </label>
 
-              <label class="btn btn-light float-left" id="$desc" ><i class="fas fa-sort-numeric-down-alt "></i>
+              <label class="btn btn-light float-left" id="$desc" ><i class="fas fa-sort-numeric-down-alt "></i>U$D
                 <input type="radio" name="options" autocomplete="off">
               </label>
-
-              <!------------------Filtrar por precio------------------>
-              <label class="btn btn-light" id="min" ><i class="fa fa-dollar-sign"></i>
-                <input type="number" placeholder="Ingrese valor mínimo" value="">
+              
+              <label class="btn btn-light float-left" id="relevancia" ><i class="fas fa-sort-amount-down"></i>Relevancia 
+                <input type="radio" name="options" autocomplete="off">
               </label>
-
-              <label class="btn btn-light" id="max" ><i class="fa fa-dollar-sign"></i>
-                <input type="number" placeholder="Ingrese valor máximo" value="">
-              </label>
-
 
             </div>
           </div>
