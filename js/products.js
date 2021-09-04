@@ -92,7 +92,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
 //**************************************************************************************************//
 
 
-  //-----------------------función buscador--------------------------
+  //-----------------------función BUSCADOR--------------------------
 function buscar() {
 	var resultbuscador = [];
 	var inputTxt = document.getElementById("buscador").value.toUpperCase();
@@ -148,7 +148,7 @@ function precioDesc(){
     });
     mostrarProductos(prodData);
 }
-//------------------------
+//--------------------------
 function relevancia(){
     prodData.sort((a,b)=>{
         return b.soldCount-a.soldCount;   
@@ -167,7 +167,7 @@ function min(){
 	});
 	mostrarProductos(filtrado);
 };
-//----------
+//---------------------
 function max(){
     let minvalue = parseInt(document.getElementById("min").value);
 
@@ -177,7 +177,7 @@ function max(){
     });
     mostrarProductos(filtrado);
 };
-
+//----------------------
 function limpiar(){
     document.getElementById("min").value= "";
     document.getElementById("max").value= "";
