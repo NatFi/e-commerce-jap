@@ -13,16 +13,19 @@ document.addEventListener("DOMContentLoaded", function(e){
 		}else{
 			Swal.fire({
 				//title: '¡Hola!',
-				width: '461px',
+				//width: '100%',
+				grow:'fullscreen',
 		    	//html:'<b>Ingresa para continuar al sitio</b>',
-			    background:'linear-gradient(to top, rgb(234, 255, 239), rgba(255,255,255,0))',
-			    imageUrl: '../img/jap.png',
-			    imageWidth:'90px',
+			    background:'linear-gradient(to top, rgb(255, 255, 255), rgba(255,255,255,0))',
+			    imageUrl: 'img/jap.png',
+				imageAlt: 'JaP',
+			    imageWidth:'100px',
 			    imageHeight:'70px',
+				padding: '2rem',
 			    backdrop: `
-			    rgba(129, 208, 248, 0.781)
-			    url("../img/sa.gif")
-			    top
+			    rgba(21, 150, 155, 0.836)
+			    url('img/sa.gif')
+			    center
 			    no-repeat
 		        `,
 				showClass: {
@@ -31,11 +34,12 @@ document.addEventListener("DOMContentLoaded", function(e){
 			    hideClass: {
 			    	popup: 'animate__animated animate__fadeOutUp'
 			    },
-				confirmButtonColor: 'rgba(6, 169, 250, 0.781)',
+				confirmButtonColor: 'rgba(6, 169, 250, 0.479)',
 			    confirmButtonText: 'Ingresa para continuar al sitio',
+				footer: '<span class="lead">Este sitio forma parte de Desarrollo Web - JAP - 2021</span>',
 			}).then((result) => {
 				if (result.isConfirmed) {
-					location.href="login.html"
+					location.href='login.html';
 				};
 			});
 			//location.href="login.html";
