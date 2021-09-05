@@ -74,7 +74,7 @@ body {
 	border-radius: 25px;
 	padding: 2px 5px 5px 25px;
 	outline: none;
-	background: linear-gradient(rgb(116, 194, 230), transparent);
+	background: linear-gradient(rgb(107, 189, 228), transparent);
 	color: rgb(1, 16, 20);
 }
 
@@ -99,8 +99,6 @@ body {
 	font-variant: small-caps;
 }
 
-
-
 .ingresa {
 	color: rgb(46, 49, 78);
     font-family:Arial, Helvetica, sans-serif;
@@ -110,7 +108,23 @@ body {
 
 input::placeholder {
 	color: rgb(4, 36, 51);
-	font-style: oblique;
+	font-family:Arial, Helvetica, sans-serif;
+}
+
+#nombre::placeholder{  /* llamo por id al input */
+	font-family: "Font Awesome 5 Free", Arial, helvetica, sans-serif; 
+	font-style: normal;
+	font-weight: normal;
+	text-decoration: inherit;
+	font-weight: 510;
+}
+
+#correo::placeholder{  /* llamo por id al input */
+	font-family: "Font Awesome 5 Free", Arial, helvetica, sans-serif; 
+	font-style: normal;
+	font-weight: normal;
+	text-decoration: inherit;
+	font-weight: 510;
 }
 
 input:valid {
