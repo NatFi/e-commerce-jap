@@ -46,20 +46,94 @@
         </div>
     </div>
   </nav>
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 3 (Fecha de entrega: 19/09/2021) y Entrega 4 (Fecha de entrega: 03/10/2021).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+  <!---->
+  <main role="main">
+    <div class="container mt-5">
+      <div class="text-center p-4">
+        <h2>Descripción del producto</h2>
+        <p class="lead">Encontrarás aquí toda la información de el producto seleccionada.</p>
+        <p class="small alert-warning py-3"><strong>Nota: </strong>por simplicidad, cualquiera sea la categoría
+          seleccionada previamente, siempre se visualizará la presente: <strong>Autos</strong>.</p>
+      </div>
+
+      <h3 id="productName"></h3>
+      <hr class="my-3">
+      <dl>
+
+        <dt>Descripción</dt>
+        <dd>
+          <p id="productDescription"></p>
+        </dd>
+
+        <dt>Cantidad de vendidos del producto</dt>
+        <dd>
+          <p id="productsoldCount"></p>
+        </dd>
+
+        <dt>Precio</dt>
+        <dd>
+          <p id="productCost"></p>
+        </dd>
+
+        <dt>Imágenes ilustrativas</dt>
+        <dd>
+          <div class="row text-center text-lg-left pt-2" id="productImages">
+          </div>
+        </dd>
+
+        <dt>Productos relacionados</dt>
+        <dd>
+          <div  class="row pt-2" id="relatedProducts"></div>
+        </dd>
+
+        <hr class="my-3 shadow-sm">
+        <p id="fecha"></p>
+
+        <dt>Comentarios:</dt>
+        <dd>
+          <div class="container center pl-5 mt-5" id="comentarios">
+            <!--comentarios-->
+          </div>
+        </dd>
+
+        <br>
+
+
+        <dt></dt>
+          <dd>
+            <div id="div-dejarcoment" class="container center pl-4 border-success border-top border-right">
+             <div id="nombreusercoment" class="pt-3 d-block"></div>
+              <textarea id="dejarcoment" name="coment" class="border-top border-right shadow pt-2 pl-3 ml-5 bg-transparent text-left" cols="40" rows="4" placeholder=""></textarea>
+              <!----stars---->
+              <div class="puntuacion">
+                <p class="float-right"><sup id="valor"></sup></p>
+                <input id="radio1" type="radio" name="stars" value="Excelente">
+                <label for="radio1"><i class="fas fa-star"></i></label>
+                <input id="radio2" type="radio" name="stars" value="Muy bueno">
+                <label for="radio2"><i class="fas fa-star"></i></label>
+                <input id="radio3" type="radio" name="stars" value="Regular">
+                <label for="radio3"><i class="fas fa-star"></i></label>
+                <input id="radio4" type="radio" name="stars" value="Malo">
+                <label for="radio4"><i class="fas fa-star"></i></label>
+                <input id="radio5" type="radio" name="stars" value="Muy malo">
+                <label for="radio5"><i class="fas fa-star"></i></label>
+              </div>
+              <!------------>
+              <button id="publicoment" class="type3">Publicar opinión</button>
+            </div>
+          </dd>
+      </dl>
+      <br><br>
+      <a type="button" href="products.html" class="btn btn-light btn-outline-secondary btn-lg border-bottom border-right btn-block">Volver a productos</a>
     </div>
-  </div>
+  </main>
+  <!---->
   <footer class="text-muted">
     <div class="container">
       <p class="float-right">
-        <a href="#">Volver arriba</a>
+        <button class="back-to-top" type="button"><i class="fas fa-angle-double-up"></i></button>
       </p>
-      <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
+      <p>Este sitio forma parte de Desarrollo Web - JAP - 2021</p>
       <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
     </div>
   </footer>

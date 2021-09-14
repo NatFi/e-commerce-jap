@@ -4,12 +4,10 @@ var prodData = [];
 function mostrarProductos(array){
     showSpinner();
     let htmlContentToAppend = "";
-     for(let i = 0; i < array.length; i++){
-        let product = array[i];
-      //  if(product.cost >= minvalue && product.cost <= maxvalue){
+     for(let product of array){
 
         htmlContentToAppend += `
-        <div class="list-group-item list-group-item-action">
+        <a href="product-info.html" class="list-group-item list-group-item-action">
             <div class="row">
                 <div class="col-3">
                     <img src="` + product.imgSrc + `" alt="` + product.description + `" class="img-thumbnail">
@@ -24,7 +22,7 @@ function mostrarProductos(array){
                     </div>
                 </div>
             </div>
-        </div>
+        </a>
         `
 
         document.getElementById("prod-list-container").innerHTML = htmlContentToAppend;

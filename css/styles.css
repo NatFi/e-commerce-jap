@@ -139,6 +139,7 @@ a.custom-card:hover {
 .checked {
   color: orange;
 }
+
 /*** *** ***/
 #buscador::placeholder{  /* llamo por id al input buscador asi no me cambia todos los placeholder*/
   font-family: "Font Awesome 5 Free", Arial, helvetica, sans-serif; 
@@ -147,3 +148,329 @@ a.custom-card:hover {
   text-decoration: inherit;
   font-weight: 510;
 }
+
+#dejarcoment::placeholder{
+  font-family: "Font Awesome 5 Free", Arial, helvetica, sans-serif; 
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: inherit;
+  font-weight: 510;
+}
+#dejarcoment:hover{
+  animation: flash;
+  animation-duration: 1s;
+}
+
+
+#comentsusers:hover{
+  animation: fadeIn;
+  animation-duration: 1s;
+}
+
+#div-dejarcoment{
+  background-image: url("/img/sa.gif");
+  background-size:contain;
+  background-position:right;
+  background-repeat: no-repeat;
+  height: 200px;
+  width: auto;
+}
+
+#zoomimage:hover{
+  animation: pulse;
+  animation-duration: 2s;
+}
+
+
+/****** TRANSPARENCIA AL SALTAR SWAL ALERT en comentario ******/
+body.swal2-shown > [aria-hidden="true"] {
+  transition: 0.1s filter;
+  filter: blur(10px);
+}
+
+
+/*************************  PUNTUACIÓN *************************/
+
+.puntuacion {
+  position: absolute;
+  overflow: hidden;
+  display: inline-block;
+  margin-bottom: 100px;
+  margin-left: 20px;
+}
+
+  .puntuacion input {
+  position: absolute;
+  top: -100px;
+  width: 27px;
+  }
+
+  .puntuacion label {
+  float: right;
+  color: #c1b8b8;
+  font-size: 20px; 
+  width: 27px;
+  }
+
+  .puntuacion label:hover{
+    animation: rotateIn;
+    animation-duration: 0.7s; 
+  }
+
+  .puntuacion span{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 2px;
+   /* color: rgb(218, 170, 13);*/
+  }
+
+  #radio5:hover ~ label,
+  #radio5:checked ~ label{
+    color: rgb(212, 14, 14);
+  } 
+  #radio4:hover ~ label,
+  #radio4:checked ~ label{
+    color: rgb(255, 153, 0);
+  } 
+  #radio3:hover ~ label,
+  #radio3:checked ~ label{
+    color: rgb(255, 217, 0);
+  } 
+  #radio2:hover ~ label,
+  #radio2:checked ~ label{
+    color: rgb(79, 202, 7);
+  } 
+  #radio1:hover ~ label,
+  #radio1:checked ~ label{
+    color: rgb(6, 167, 73);
+  } 
+
+
+/******************* BOTON IR ARRIBA **********************/
+
+button.back-to-top{
+  margin: 0 !important;
+  padding: 0 !important;
+  background: #fff;
+	height: 0px;
+  width: 0px;
+  overflow: hidden;
+	border-radius: 50px;
+	-webkit-border-radius: 50px;
+	-moz-border-radius: 50px;
+  color: transparent;
+	clear: both;
+  visibility: hidden;
+  position: fixed;
+  cursor: pointer;
+  display: block;
+  border: none;
+  right: 50px;
+	bottom: 75px;
+  font-size: 0px;
+  outline: 0 !important;
+  z-index: 99;
+  transition: all .3s ease-in-out;
+}
+button.back-to-top:hover,
+button.back-to-top:active,
+button.back-to-top:focus{
+  outline: 0 !important;
+}
+button.back-to-top::before {
+ /* content: "";  */
+  font-family: "Font Awesome 5 Free";
+  display: block;
+ /* vertical-align: middle; */
+  margin: -5px 0 auto;
+}
+button.back-to-top.show {
+  display: block;
+  color: rgb(255, 255, 255);
+  background: #19f3cfd0;
+  font-size: 25px;
+  right: 25px;
+	bottom: 50px;
+  height: 50px;
+  width: 50px;
+  visibility: visible;
+	box-shadow: 0px 2px 4px 1px rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: 0px 2px 4px 1px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0px 2px 4px 1px rgba(0, 0, 0, 0.25);
+}
+button.back-to-top.show:active {
+  box-shadow: 0px 4px 8px 2px rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: 0px 4px 8px 2px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0px 4px 8px 2px rgba(0, 0, 0, 0.25);
+}
+
+
+/***************** BOTON type1 ***************************/
+
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+
+.type1,.type2,.type3,.type4{
+  position: relative;
+  padding: 0.8em 1em;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  outline: none;
+  font-size: 15px;
+  margin: 1em 0.8em;
+}
+
+.type1:focus,
+.type2:focus,
+.type3:focus,
+.type4:focus{
+  outline-width: 0.5px;
+  outline-style: dashed;
+  outline-color: rgb(255, 255, 255);
+}
+
+
+.type1{
+  color:rgb(29, 165, 124);
+}
+
+.type1::after,
+.type1::before{
+  content: '';
+  display: block;
+  position: absolute;
+  width: 20%;
+  height: 20%;
+  border: 2px solid;
+  transition: all 0.6s ease;
+  border-radius: 2px;
+}
+
+.type1::after{
+  bottom: 0;
+  right: 0;
+  border-top-color: transparent;
+  border-left-color: transparent;
+  border-bottom-color: rgb(29, 165, 124);
+  border-right-color: rgb(29, 165, 124);
+}
+
+.type1::before{
+  top: 0;
+  left: 0;
+  border-bottom-color: transparent;
+  border-right-color: transparent;
+  border-top-color: rgb(29, 165, 124);
+  border-left-color: rgb(29, 165, 124);
+}
+
+  
+.type1:hover:after,
+.type1:hover:before{
+  width: 107%;
+  height: 117%;
+}
+
+
+/***************** BOTON type2 *********************/
+.type2{
+  color:rgb(29, 165, 124);
+}
+
+.type2:after,
+.type2:before{
+  content: '';
+  display: block;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: rgb(29, 165, 124);
+  transition: all 0.3s ease;
+  transform: scale(0.85);
+}
+
+.type2:hover:before{
+  top: 0;
+  transform: scale(1);
+}
+
+.type2:hover:after{
+  transform: scale(1);
+}
+
+/******************** BOTON type3 ********************/  
+.type3{
+  color:rgb(9, 150, 107);
+  position:absolute;
+  margin-top: 60px;
+  margin-left: 150px;
+}
+
+.type3::after,
+.type3::before{
+  content: '';
+  display: block;
+  position: absolute;
+  width: 15%;
+  height: 20%;
+  border: 1px solid;
+  transition: all 0.6s ease;
+  border-radius: 3px;
+}
+
+.type3::after{
+  bottom: 0;
+  right: 0;
+  border-top-color: transparent;
+  border-left-color: transparent;
+  border-bottom-color: rgb(9, 150, 107);
+  border-right-color: rgb(9, 150, 107);
+}
+.type3::before{
+  top: 0;
+  left: 0;
+  border-bottom-color: transparent;
+  border-right-color: transparent;
+  border-top-color: rgb(9, 150, 107);
+  border-left-color: rgb(9, 150, 107);
+}
+
+.type3:hover:after,
+.type3:hover:before{
+  border-bottom-color: rgb(9, 150, 107);
+  border-right-color: rgb(9, 150, 107);
+  border-top-color: rgb(9, 150, 107);
+  border-left-color: rgb(9, 150, 107);
+  width: 105%;
+  height: 110%;
+  background-color: rgba(3, 146, 103, 0.178);
+}
+
+
+/******************* BOTON type4 **********************/
+.type4{
+  color:rgb(29, 165, 124);
+}
+
+.type4::after{
+  content: '';
+  display: block;
+  position: absolute;
+  height: 2px;
+  width: 0;
+  left: 0;
+  background-color:rgb(29, 165, 124);
+  transition: width 0.3s ease-in-out;
+}
+
+.type4::after{
+      bottom: 0;
+}
+.type4:hover::after{
+      width: 150px;
+}
+
+/************************************/
+
+
