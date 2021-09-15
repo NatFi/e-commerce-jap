@@ -223,26 +223,27 @@ body.swal2-shown > [aria-hidden="true"] {
    /* color: rgb(218, 170, 13);*/
   }
 
-  #radio5:hover ~ label,
-  #radio5:checked ~ label{
-    color: rgb(212, 14, 14);
-  } 
-  #radio4:hover ~ label,
-  #radio4:checked ~ label{
-    color: rgb(255, 153, 0);
-  } 
-  #radio3:hover ~ label,
-  #radio3:checked ~ label{
-    color: rgb(255, 217, 0);
+  #radio1:hover ~ label,
+  #radio1:checked ~ label {
+    color: rgb(255, 0, 0);
   } 
   #radio2:hover ~ label,
   #radio2:checked ~ label{
-    color: rgb(79, 202, 7);
+    color: rgb(255, 123, 0);
   } 
-  #radio1:hover ~ label,
-  #radio1:checked ~ label{
+  #radio3:hover ~ label,
+  #radio3:checked ~ label{
+    color: rgb(238, 195, 6);
+  } 
+  #radio4:hover ~ label,
+  #radio4:checked ~ label{
+    color:  rgb(144, 216, 10);
+  } 
+  #radio5:hover ~ label,
+  #radio5:checked ~ label{
     color: rgb(6, 167, 73);
   } 
+  
 
 
 /******************* BOTON IR ARRIBA **********************/
