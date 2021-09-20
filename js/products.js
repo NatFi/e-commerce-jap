@@ -164,7 +164,7 @@ function min(){
 		return product.cost >= minvalue && product.cost <= maxvalue;
 	});
 	mostrarProductos(filtrado);
-};
+}; 
 //---------------------
 function max(){
     let minvalue = parseInt(document.getElementById("min").value);

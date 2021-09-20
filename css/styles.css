@@ -140,7 +140,8 @@ a.custom-card:hover {
   color: orange;
 }
 
-/*** *** ***/
+/*** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***/
+
 #buscador::placeholder{  /* llamo por id al input buscador asi no me cambia todos los placeholder*/
   font-family: "Font Awesome 5 Free", Arial, helvetica, sans-serif; 
   font-style: normal;
@@ -155,7 +156,18 @@ a.custom-card:hover {
   font-weight: normal;
   text-decoration: inherit;
   font-weight: 510;
+  color: rgb(4, 131, 57);
+  float:right;
+  padding-right: 10px;
 }
+
+#dejarcoment:focus{    /*  sacar bordes feos al hacer foco! -_-  */
+	outline-width: 0.5px;
+	outline-style: dashed;
+	outline-color: rgba(255, 255, 255, 0.021);
+  color: rgb(4, 131, 57);
+}
+
 #dejarcoment:hover{
   animation: flash;
   animation-duration: 1s;
@@ -202,14 +214,14 @@ body.swal2-shown > [aria-hidden="true"] {
   .puntuacion input {
   position: absolute;
   top: -100px;
-  width: 27px;
+  width: 30px;
   }
 
   .puntuacion label {
   float: right;
   color: #c1b8b8;
   font-size: 20px; 
-  width: 27px;
+  width: 30px;
   }
 
   .puntuacion label:hover{
@@ -217,36 +229,45 @@ body.swal2-shown > [aria-hidden="true"] {
     animation-duration: 0.7s; 
   }
 
-  .puntuacion span{
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-weight: 2px;
-   /* color: rgb(218, 170, 13);*/
+  #radio1:hover ~ label{
+    color: rgba(255, 0, 0, 0.550) !important;
   }
-
-  #radio1:hover ~ label,
   #radio1:checked ~ label {
     color: rgb(255, 0, 0);
   } 
-  #radio2:hover ~ label,
+  #radio2:hover ~ label{  
+    color: rgba(255, 72, 0, 0.550) !important;
+  }
   #radio2:checked ~ label{
-    color: rgb(255, 123, 0);
+    color: rgb(255, 72, 0);
   } 
-  #radio3:hover ~ label,
+  #radio3:hover ~ label{
+    color: rgb(255, 145, 0, 0.550) !important;
+  }
   #radio3:checked ~ label{
+    color: rgb(255, 145, 0);
+  } 
+  #radio4:hover ~ label{
+    color: rgb(238, 195, 6, 0.550) !important;
+  }
+  #radio4:checked ~ label{
     color: rgb(238, 195, 6);
   } 
-  #radio4:hover ~ label,
-  #radio4:checked ~ label{
-    color:  rgb(144, 216, 10);
-  } 
-  #radio5:hover ~ label,
+  #radio5:hover ~ label{
+    color: rgb(49, 165, 49, 0.550) !important;
+  }
   #radio5:checked ~ label{
-    color: rgb(6, 167, 73);
+    color: rgb(49, 165, 49);
   } 
-  
+
+/****************** ESTRELLAS QUE SE SUBEN A LOS COMENTARIOS ********************/
+
+ .stars{
+  color:rgba(231, 179, 7, 0.801);
+}
 
 
-/******************* BOTON IR ARRIBA **********************/
+/******************************* BOTON IR ARRIBA ********************************/
 
 button.back-to-top{
   margin: 0 !important;

@@ -1,3 +1,6 @@
+
+
+
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
@@ -31,43 +34,43 @@ document.addEventListener("DOMContentLoaded", function(e){
 		comentar();                                                          
 	});
 
-
+    
 
     //-------------------------- SPAN ESTRELLAS ----------------------------
 
     document.getElementById("radio1").addEventListener("click",()=>{
-        //   document.getElementById("valor").innerHTML="Excelente";
+        //   document.getElementById("valor").innerHTML="Muy malo";
         let x = document.getElementById("valor");
         x.innerHTML = "Muy malo";
-        x.style.color = "rgb(255, 0, 0)";   
+        x.style.color = "rgb(255, 0, 0)";
     });
 
     document.getElementById("radio2").addEventListener("click",()=>{
-        //   document.getElementById("valor").innerHTML="Muy bueno";
+        //   document.getElementById("valor").innerHTML="Malo";
         let x = document.getElementById("valor");
         x.innerHTML = "Malo";
-        x.style.color = "rgb(255, 123, 0)";   
+        x.style.color = "rgb(255, 72, 0)";
     });
 
     document.getElementById("radio3").addEventListener("click",()=>{
         //  document.getElementById("valor").innerHTML="Regular";
         let x = document.getElementById("valor");
         x.innerHTML = "Regular";
-        x.style.color = "rgb(238, 195, 6)";  
+        x.style.color = "rgb(255, 145, 0)";  
     });
 
     document.getElementById("radio4").addEventListener("click",()=>{
-        // document.getElementById("valor").innerHTML="Malo";
+        // document.getElementById("valor").innerHTML="Bueno";
         let x = document.getElementById("valor");
-        x.innerHTML = "Muy bueno";
-        x.style.color = "rgb(144, 216, 10)";  
+        x.innerHTML = "Bueno";
+        x.style.color = "rgb(238, 195, 6)";  
     });
 
     document.getElementById("radio5").addEventListener("click",()=>{
-      //  document.getElementById("valor").innerHTML="Muy malo";
+      //  document.getElementById("valor").innerHTML="Muy bueno";
         let x = document.getElementById("valor");
-        x.innerHTML = "Excelente";
-        x.style.color = "rgb(6, 167, 73)"; 
+        x.innerHTML = "Muy bueno";
+        x.style.color = "rgb(49, 165, 49)"; 
     });
 
 
@@ -114,10 +117,10 @@ function mostrarRelacionados(array){
 
     for(let relac of array){
         
-        htmlContentToAppend =  `
+        htmlContentToAppend +=  `
         <div class="col-lg-3 col-md-4 col-6">
             <div class="d-block mb-4 h-100" >
-                <img class="img-fluid img-thumbnail" src="` +  relac + `" alt="">
+                ` +  relac + `
             </div>
         </div>
         `
@@ -150,13 +153,13 @@ function mostrarComentProductos(array){
         
         comentariosHTML += `
 
-        <div class="col ml-4 mb-4 border shadow pt-4 pb-3 pl-4 pr-5 " id="comentsusers">
+        <div class="col ml-4 mb-4 border shadow pt-4 pb-3 pl-4 pr-5" id="comentsusers">
           <div class="mb-2 d-flex w-100 justify-content-between border-bottom">
             <p class="ml-3 mb-2"><b><i class="fas fa-user-circle"></i>`+" "+ coments.user +`</b></p>
             <small class="text-muted">` + calificar(coments.score) + `</small>
           </div>
             <p class="mb-3">`+ coments.description +`</p>
-            <p class="mb-1">`+ coments.dateTime +`</p>
+            <p class="mb-1"><i class="fa fa-clock-o"></i>`+ coments.dateTime +`</p>
         </div>
      `
      document.getElementById("comentarios").innerHTML = comentariosHTML;
@@ -235,8 +238,8 @@ function comentar(){
     
     document.getElementById("dejarcoment").value = "";
  };
-
-  mostrarComentProductos(comentarios);
+ 
+ mostrarComentProductos(comentarios);
 };
 
 
@@ -245,16 +248,23 @@ function comentar(){
 //----------------------------asi el score siempre se mostrara en estrella stanto en el json como en mis nuevos comentarios ---
  function calificar(num){
 
-    let stars = "";
-    for (let i=1; i <=5; i++){    // puntuacion entre 1-5
-        if (i <= num){  //cuento y pregunto
-        stars += `<i class="fas fa-star"></i>`;
-      }else{
-        stars += `<i class="far fa-star"></i>`;
-      };
-    };
+     let stars = "";
+     for (let i=1; i <=5; i++){    // puntuacion entre 1-5
+        if (i <=num ){  //cuento y pregunto
+         stars += `<i class="stars fas fa-star"></i>`;
+        }else{
+        stars += `<i class="stars far fa-star"></i>`;
+        };
+     };
      return stars;
  };
+     
+ 
+
+ 
+
+
+
 
 
 

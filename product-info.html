@@ -81,15 +81,17 @@
           </div>
         </dd>
 
-        <dt>Productos relacionados</dt>
+        <dt>Productos relacionados</dt>   
         <dd>
-          <div  class="row pt-2" id="relatedProducts"></div>
+        <div class="row pt-2" id="relatedProducts"></div>
+         <!-- <lottie-player src = "https://assets6.lottiefiles.com/packages/lf20_yyhcf6hn.json" background="transparent" speed="1" style ="width: 200px; height: 200px;" loop autoplay></lottie-player> -->
+              <lottie-player src = "https://assets6.lottiefiles.com/packages/lf20_8uHQ7s.json" background="transparent" speed="1" style="width: 250px; height: 250px;" loop autoplay></lottie-player>
         </dd>
 
         <hr class="my-3 shadow-sm">
-        <p id="fecha"></p>
 
         <dt>Comentarios:</dt>
+        <lottie-player src="https://assets8.lottiefiles.com/packages/lf20_onkey86y.json" background="transparent" speed="0.7" style="float:right; width: 40px; height: 40px;" loop autoplay></lottie-player>
         <dd>
           <div class="container center pl-5 mt-5" id="comentarios">
             <!--comentarios-->
@@ -97,16 +99,12 @@
         </dd>
 
         <br>
-        <script src = "https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script> 
-        <lottie-player src = "https://assets6.lottiefiles.com/packages/lf20_yyhcf6hn.json" background =" transparent "speed =" 1 "style =" width: 300px; height: 300px;" loop autoplay></lottie-player>   
-
-        <p id="texto"></p>
 
         <dt></dt>
           <dd>
-            <div id="div-dejarcoment" class="container center pl-4 border-success border-top border-right">
+            <div id="div-dejarcoment" class="container center pl-4 border-success border-top border-left">
              <div id="nombreusercoment" class="pt-3 d-block"></div>
-              <textarea id="dejarcoment" name="coment" class="border-top border-right shadow pt-2 pl-3 ml-5 bg-transparent text-left" cols="40" rows="4" placeholder=""></textarea>
+              <textarea id="dejarcoment" name="coment" class="border-success border-left-0 border-top-0 shadow pt-2 pl-3 ml-5 mt-4 bg-transparent text-left" cols="40" rows="4" placeholder=""></textarea>
               <!----stars---->
               <div class="puntuacion">
                 <p class="float-right"><sup id="valor"></sup></p>
@@ -127,7 +125,7 @@
           </dd>
       </dl>
       <br><br>
-      <a type="button" href="products.html" class="btn btn-light btn-outline-secondary btn-lg border-bottom border-right btn-block">Volver a productos</a>
+      <a type="button" href="products.html" class="btn btn-light btn-outline-secondary btn-lg border-bottom border-left btn-block">Volver a productos</a>
     </div>
   </main>
   <!---->
@@ -153,6 +151,7 @@
   <script src="js/init.js"></script>
   <script src="js/product-info.js"></script>
   <script src="js/desconectar.js"></script>
+  <script src = "https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script> 
 </body>
 
 </html>
