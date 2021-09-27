@@ -26,8 +26,8 @@ document.addEventListener("DOMContentLoaded", function(e){
             mostrarComentProductos(comentarios);
         }
     });
-    
 
+    
     //-----------------------------------------------------------------------
     document.getElementById("recientes").addEventListener("click",()=>{        // ordenar recientes
     recientes();                                                          
@@ -92,7 +92,34 @@ document.addEventListener("DOMContentLoaded", function(e){
     });
 
 
+   //-------------------------- RELACIONADOS --------------------------
+
+    getJSONData(PRODUCTS_URL).then((resultObj) =>{
+        if(resultObj.status === "ok"){
+          
+        relacionados = resultObj.data;
+        mostrarRelacionados(relacionados);
+        }
+    });
+
 });
+
+function mostrarRelacionados(){
+
+    var imag = relacionados;
+    var slides ="";
+    var i = 0;
+    imag.forEach(relacionado=>{
+        if (i==0){
+            slides+= "<div class='carousel-item active'><img class='dblock w-100' src=" + relacionado.imgSrc +" alt='" + relacionado.imgSrc + "'></div>"
+            } else{
+            slides+= "<div class='carousel-item'><img class='dblock w-100' src=" + relacionado.imgSrc+" alt='" + relacionado.imgSrc + "'></div>"
+            }
+            i++;
+    });
+    document.getElementById("relatedProducts").innerHTML = slides;
+};
+
 
 
 //----------------------------------  INFO  ------------------------------------
@@ -106,7 +133,7 @@ function mostrarInfoProductos(){
     document.getElementById("productCost").innerHTML= (prodInfo.currency) +"    "+ (prodInfo.cost);
     
     mostrarProdImg(prodInfo.images);
-    mostrarRelacionados(prodInfo.relatedProducts);
+   // mostrarRelacionados(prodInfo.relatedProducts);
 };
 
 
@@ -128,25 +155,6 @@ function mostrarProdImg(array){
     }
 
 };
-/*
-function mostrarRelacionados(){
-    let htmlContentToAppend = "";
-
-    prodData.find(function(prodData,index){
-       
-        htmlContentToAppend +=  `
-        <div class="col-lg-3 col-md-4 col-6">
-            <div class="d-block mb-4 h-100" >
-              <img class="img-fluid img-thumbnail" src="` + index[1] + `" alt="">
-            </div>
-        </div>
-        `
-        document.getElementById("relatedProducts").innerHTML = htmlContentToAppend;
-    });
-
-   // relac = (product.includes(1))&& (product.includes(3));
-};
-*/
 
 //---------------------------------  COMENTARIOS  ------------------------------------
 
