@@ -28,13 +28,31 @@ document.addEventListener("DOMContentLoaded", function(e){
     });
     
 
-   //-----------------------------------------------------------------------
+    //-----------------------------------------------------------------------
+    document.getElementById("recientes").addEventListener("click",()=>{        // ordenar recientes
+    recientes();                                                          
+    });
 
-    document.getElementById("publicoment").addEventListener("click",()=>{     // btn publicar comentario
+    document.getElementById("maspuntuados").addEventListener("click",()=>{     // ordenar por mas puntuados
+    maspuntuados();                                                          
+    });
+
+    document.getElementById("menospuntuados").addEventListener("click",()=>{   // ordenar por menos puntuados
+    menospuntuados();                                                          
+    });
+
+
+    //---------------- NOMBRE USUARIO en publicar comentario  --------------
+
+    let usuario = JSON.parse(localStorage.getItem("usuario"));
+    document.getElementById("nombreusercoment").innerHTML =
+    `<p class="ml-3 mb-2 mt-2"> <i class="green fas fa-user mx-2"></i>` + " " + `<b class="green">` +" "+ 
+    usuario.nombre + `</b>`+ " " + "queremos conocer tu opinión!" +`</p>`;
+
+
+    document.getElementById("publicoment").addEventListener("click",()=>{    // btn publicar comentario
 		comentar();                                                          
 	});
-
-    
 
     //-------------------------- SPAN ESTRELLAS ----------------------------
 
@@ -110,37 +128,36 @@ function mostrarProdImg(array){
     }
 
 };
-
-function mostrarRelacionados(array){
-
+/*
+function mostrarRelacionados(){
     let htmlContentToAppend = "";
 
-    for(let relac of array){
-        
+    prodData.find(function(prodData,index){
+       
         htmlContentToAppend +=  `
         <div class="col-lg-3 col-md-4 col-6">
             <div class="d-block mb-4 h-100" >
-                ` +  relac + `
+              <img class="img-fluid img-thumbnail" src="` + index[1] + `" alt="">
             </div>
         </div>
         `
-
         document.getElementById("relatedProducts").innerHTML = htmlContentToAppend;
+    });
 
    // relac = (product.includes(1))&& (product.includes(3));
-}};
-
+};
+*/
 
 //---------------------------------  COMENTARIOS  ------------------------------------
 
 var comentarios = [];
 
-/*function mostrarComentProductos(array){
+/*
+function mostrarComentProductos(array){
     for(let coments of array){
-
-        document.getElementById("comentarios").innerHTML += (coments.score) + (coments.description) + (coments.user) + (coments.dateTime);
-    }    
-};*/ 
+         document.getElementById("comentarios").innerHTML += (coments.score) + (coments.description) + (coments.user) + (coments.dateTime);
+        }};
+*/ 
 
 // {} es un objeto que contiene propiedades---a las propiedades del objeto ACCEDES CON objeto.propiedad.
 // [] es un array que puede contener objetos o cualquier tipo de variable---a los elementos del array ACCEDES CON array[index].
@@ -153,13 +170,13 @@ function mostrarComentProductos(array){
         
         comentariosHTML += `
 
-        <div class="col ml-4 mb-4 border shadow pt-4 pb-3 pl-4 pr-5" id="comentsusers">
+        <div class="col ml-4 mb-4 shadow pt-4 pb-5 pl-4 pr-5" id="comentsusers">
           <div class="mb-2 d-flex w-100 justify-content-between border-bottom">
-            <p class="ml-3 mb-2"><b><i class="fas fa-user-circle"></i>`+" "+ coments.user +`</b></p>
+            <p class="ml-3 mb-2 orange"><b><i class="fas fa-user-circle pr-2"></i>`+" "+ coments.user +`</b></p>
             <small class="text-muted">` + calificar(coments.score) + `</small>
           </div>
-            <p class="mb-3">`+ coments.description +`</p>
-            <p class="mb-1"><i class="fa fa-clock-o"></i>`+ coments.dateTime +`</p>
+            <p class="pt-2">`+ coments.description +`</p>
+            <small class="float-right text-muted"><i class="far fa-calendar-alt pr-2"></i>`+ coments.dateTime +`<i class="pl-2 far fa-clock"></i></small>
         </div>
      `
      document.getElementById("comentarios").innerHTML = comentariosHTML;
@@ -182,9 +199,9 @@ function comentar(){
                     // de dicho objeto.
 
   /**/let mes = hoy.getMonth()+1;
-    if (mes < 10){
-        mes ="0" + mes;
-    }
+  if (mes < 10){
+      mes ="0" + mes;
+  }
   /**/let dia = hoy.getDate();
   if (dia < 10){
       dia = "0" + dia;
@@ -200,7 +217,7 @@ function comentar(){
   let hora = hoy.getHours() + ":" + minutos +":" + segundos; 
   let fecha = hoy.getFullYear() + "-" + mes + "-" + dia; 
 
-  let fechayhoracoment = fecha +" "+" "+ hora;        // fecha y hora 
+  let fechayhoracoment = fecha +"   "+ hora;        // fecha y hora 
 
 
   // buscar el radiobutton checked y armar el texto con el valor ( 1 - 5 )
@@ -216,10 +233,10 @@ function comentar(){
   dejarcoment.score = estrellasSelect;  
   dejarcoment.dateTime = fechayhoracoment;
 
+   if(dejarcoment.description.trim() !== "" && dejarcoment.score.trim() !== ""){
 
-  if(dejarcoment.description.trim() !== "" && dejarcoment.score.trim() !== ""){
-
-      comentarios.push(dejarcoment);
+     //comentarios.push(dejarcoment);
+     comentarios.unshift(dejarcoment);
 
       Swal.fire({
         position: 'center',
@@ -232,7 +249,7 @@ function comentar(){
             popup: 'animate__animated animate__fadeOut'
           },
         showConfirmButton: false,
-        timer: 2500,
+        timer: 2000,
         timerProgressBar: true,
     });
     
@@ -244,8 +261,8 @@ function comentar(){
 
 
 //----- Poner ESTRELLAS en el SCORE de los comentarios del JSON en vez de numeros ---
-//----------------------cuando muestro el score, le puse la funcion (mas arriba) ---
-//----------------------------asi el score siempre se mostrara en estrella stanto en el json como en mis nuevos comentarios ---
+//----------------------------cuando muestro el score, le puse la funcion (mas arriba) ---
+//-------------------------------asi el score siempre se mostrara en estrella stanto en el json como en mis nuevos comentarios ---
  function calificar(num){
 
      let stars = "";
@@ -258,7 +275,38 @@ function comentar(){
      };
      return stars;
  };
-     
+
+ 
+
+//--------------- Ordenar ------------------
+
+function recientes(){
+    comentarios.sort((a,b)=>{
+        if (a.dateTime > b.dateTime){
+            return -1;
+        }
+        if (a.dateTime < b.dateTime){
+            return 1;
+        }else{
+            return 0;
+        }   
+    });
+    mostrarComentProductos(comentarios);
+}
+
+function maspuntuados(){
+    comentarios.sort((a,b)=>{
+        return b.score-a.score;   
+    });
+    mostrarComentProductos(comentarios);
+}
+
+function menospuntuados(){
+    comentarios.sort((a,b)=>{
+        return a.score-b.score;   
+    });
+    mostrarComentProductos(comentarios);
+}
  
 
  

@@ -36,12 +36,15 @@
         <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
         <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
         <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-        <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
+       <!-- <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a> -->
         
         <!-------------------------dropdown usuario--------------------------->
         <a class="nav-link dropdown-toggle text-white-50" id="usuario"  href="#" role="button" aria-controls="navbarNavDarkDropdown"  data-offset="0,7" data-target="#navbarNavDarkDropdown"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
         <div class="dropdown-menu bg-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-          <button class="dropdown-item bg-dark btn-dark text-white-50 h-auto" onclick="desconectar();">Desconectar</button>
+          <a class="dropdown-item bg-dark text-white-50 h-auto" href="my-profile.html">Mi perfil <i class="fas fa-user-circle pl-2"></i></a>
+          <a class="dropdown-item bg-dark text-white-50 h-auto" href="cart.html">Ver mi carrito <i class="fas fa-shopping-cart pl-2"></i></a>
+          <div class="dropdown-divider"></div>
+          <button class="dropdown-item bg-dark btn-dark text-white-50 h-auto" onclick="desconectar();">Desconectar <i class="fas fa-sign-out-alt pl-2"></i></button>
         </div>
 
       </div>

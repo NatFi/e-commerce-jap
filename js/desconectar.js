@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function(e){
 	let usuario = JSON.parse(localStorage.getItem("usuario"));
 	if(usuario !== null){
 		  document.getElementById("usuario").innerHTML="Hola" +" "+ usuario.nombre + "!";
-		  document.getElementById("nombreusercoment").innerHTML= `<p class="ml-3 mb-2 mt-2"> <i class="fas fa-user mx-2"></i>` + " " + `<b>` +" "+ usuario.nombre + `</b>`+ " " + "queremos conocer tu opinión!" +`</p>`;
+	      //document.getElementById("nombreusercoment").innerHTML= `<p class="ml-3 mb-2 mt-2"> <i class="green fas fa-user mx-2"></i>` + " " + `<b class="green">` +" "+ usuario.nombre + `</b>`+ " " + "queremos conocer tu opinión!" +`</p>`;
 		}else{
 			Swal.fire({
 				//title: '¡Hola!',

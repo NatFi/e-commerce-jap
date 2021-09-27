@@ -260,10 +260,17 @@ body.swal2-shown > [aria-hidden="true"] {
     color: rgb(49, 165, 49);
   } 
 
-/****************** ESTRELLAS QUE SE SUBEN A LOS COMENTARIOS ********************/
 
- .stars{
-  color:rgba(231, 179, 7, 0.801);
+ .stars{        /*estrellas y nombre usuario de color en comentarios del json*/
+  color: rgba(231, 179, 7, 0.801);
+}
+
+.green{          /*color nombre de usuario en publicar comentario */
+  color: rgb(4, 107, 76); ;
+}
+
+.orange{
+  color: rgb(252, 95, 52);
 }
 
 

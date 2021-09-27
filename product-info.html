@@ -38,11 +38,14 @@
       <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-      <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
+      <!--<a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>-->
 
       <a class="nav-link dropdown-toggle text-white-50" id="usuario"  href="#" role="button" aria-controls="navbarNavDarkDropdown"  data-offset="0,7" data-target="#navbarNavDarkDropdown"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
         <div class="dropdown-menu bg-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-          <button class="dropdown-item bg-dark btn-dark text-white-50 h-auto" onclick="desconectar();">Desconectar</button>
+          <a class="dropdown-item bg-dark text-white-50 h-auto" href="my-profile.html">Mi perfil <i class="fas fa-user-circle pl-2"></i></a>
+          <a class="dropdown-item bg-dark text-white-50 h-auto" href="cart.html">Ver mi carrito <i class="fas fa-shopping-cart pl-2"></i></a>
+          <div class="dropdown-divider"></div>
+          <button class="dropdown-item bg-dark btn-dark text-white-50 h-auto" onclick="desconectar();">Desconectar <i class="fas fa-sign-out-alt pl-2"></i></button>
         </div>
     </div>
   </nav>
@@ -51,7 +54,7 @@
     <div class="container mt-5">
       <div class="text-center p-4">
         <h2>Descripción del producto</h2>
-        <p class="lead">Encontrarás aquí toda la información de el producto seleccionada.</p>
+        <p class="lead">Encontrarás aquí toda la información del producto seleccionado.</p>
         <p class="small alert-warning py-3"><strong>Nota: </strong>por simplicidad, cualquiera sea la categoría
           seleccionada previamente, siempre se visualizará la presente: <strong>Autos</strong>.</p>
       </div>
@@ -65,7 +68,7 @@
           <p id="productDescription"></p>
         </dd>
 
-        <dt>Cantidad de vendidos del producto</dt>
+        <dt>Cantidad de vendidos</dt>
         <dd>
           <p id="productsoldCount"></p>
         </dd>
@@ -88,15 +91,7 @@
               <lottie-player src = "https://assets6.lottiefiles.com/packages/lf20_8uHQ7s.json" background="transparent" speed="1" style="width: 250px; height: 250px;" loop autoplay></lottie-player>
         </dd>
 
-        <hr class="my-3 shadow-sm">
-
-        <dt>Comentarios:</dt>
-        <lottie-player src="https://assets8.lottiefiles.com/packages/lf20_onkey86y.json" background="transparent" speed="0.7" style="float:right; width: 40px; height: 40px;" loop autoplay></lottie-player>
-        <dd>
-          <div class="container center pl-5 mt-5" id="comentarios">
-            <!--comentarios-->
-          </div>
-        </dd>
+        <!--<hr class="my-3 shadow-sm">-->
 
         <br>
 
@@ -122,6 +117,24 @@
               <!------------>
               <button id="publicoment" class="type3">Publicar opinión</button>
             </div>
+          </dd>
+
+          <br><br>
+         
+
+          <dt><lottie-player src="https://assets8.lottiefiles.com/packages/lf20_onkey86y.json" background="transparent" speed="1.5" style="width: 40px; height: 40px; padding-left: 100px; padding-top: 20px;" loop autoplay></lottie-player>Comentarios: </dt>
+          <div class="float-right position-relative">
+            <button class="btn btn-light btn-outline-warning border-bottom-0 border-right-0 border-top-0 text-wrap text-black-50" id="recientes">Recientes  <i class="stars far fa-calendar-alt pl-1"></i></button>
+            <div class="btn-group">
+              <button class="btn btn-light btn-outline-warning border-bottom-0 border-right-0 text-wrap text-black-50" id="maspuntuados"><i class="stars fas fa-sort-amount-up"></i></button>
+              <span class="btn btn-light btn-outline-warning border-right-0 border-left-0 text-black-50">+ Calificación -</span>
+              <button class="btn btn-light btn-outline-warning border-top-0 border-left-0 text-wrap text-black-50" id="menospuntuados"><i class="stars fas fa-sort-amount-down-alt"></i></button>
+            </div>
+          </div>
+          <dd>
+           <div class="container center pl-5 mt-5" id="comentarios">
+            <!--comentarios-->
+           </div>
           </dd>
       </dl>
       <br><br>
