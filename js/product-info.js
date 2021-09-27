@@ -144,7 +144,7 @@ function mostrarProdImg(array){
     for(let images of array){
 
         htmlContentToAppend += `
-        <div class="col-lg-3 col-md-4 col-6">
+        <div class="col-lg-3 col-md-4 col-5">
             <div class="d-block mb-4 h-100" id="zoomimage">
                 <img class="img-fluid img-thumbnail" src="` + images + `" alt="">
             </div>
