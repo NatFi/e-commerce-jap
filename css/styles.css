@@ -180,7 +180,7 @@ a.custom-card:hover {
 }
 
 #div-dejarcoment{
-  background-image: url("/img/sa.gif");
+  background-image: url('../img/sa.gif');
   background-size:contain;
   background-position:right;
   background-repeat: no-repeat;
