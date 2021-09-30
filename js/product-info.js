@@ -13,8 +13,8 @@ document.addEventListener("DOMContentLoaded", function(e){
           
             prodInfo = result.data;
             mostrarInfoProductos(prodInfo);
-        }
-    })
+        };
+    });
 
 
    //---------------------- COMENTARIOS PRODUCTO --------------------------
@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function(e){
           
             comentarios = resultComents.data;
             mostrarComentProductos(comentarios);
-        }
+        };
     });
 
     
@@ -94,32 +94,40 @@ document.addEventListener("DOMContentLoaded", function(e){
 
    //-------------------------- RELACIONADOS --------------------------
 
-    getJSONData(PRODUCTS_URL).then((resultObj) =>{
-        if(resultObj.status === "ok"){
-          
-        relacionados = resultObj.data;
-        mostrarRelacionados(relacionados);
-        }
+   getJSONData(PRODUCTS_URL).then((resultObj) =>{
+       if(resultObj.status === "ok"){
+           allproducts = resultObj.data;
+           mostrarRelacionados(allproducts);
+        };
     });
 
 });
+//-----------
+var allproducts = [];
 
-function mostrarRelacionados(){
+function mostrarRelacionados(allproducts){
 
-    var imag = relacionados;
-    var slides ="";
-    var i = 0;
-    imag.forEach(relacionado=>{
-        if (i==0){
-            slides+= "<div class='carousel-item active'><img class='dblock w-100' src=" + relacionado.imgSrc +" alt='" + relacionado.imgSrc + "'></div>"
-            } else{
-            slides+= "<div class='carousel-item'><img class='dblock w-100' src=" + relacionado.imgSrc+" alt='" + relacionado.imgSrc + "'></div>"
-            }
-            i++;
-    });
-    document.getElementById("relatedProducts").innerHTML = slides;
+    let relac = "";
+
+    for(let i=0; i < prodInfo.relatedProducts.length; i++){
+        let rel = prodInfo.relatedProducts[i];
+    
+        relac += `
+        <div class="row-sm-5 col-md-4">
+            <div class="d-block mb-4 h-100" id="zoomimage">
+                <img class="img-fluid shadow" src="` + allproducts[rel].imgSrc + `" alt="">
+                <h4 class="mb-1 mt-3 ml-5 float-left">`+ allproducts[rel].name +`</h4>
+                <p class="text-muted mt-3 mr-5 float-right">`+ allproducts[rel].currency +` `+ allproducts[rel].cost +`</p>
+                <div class="mb-2 d-flex w-100 justify-content-between border-bottom">
+                <p class="mb-1 mt-3">`+ allproducts[rel].description +`</p>
+                </div>
+            </div>
+        </div>
+        `
+        document.getElementById("relatedProducts").innerHTML = relac;
+    };
+    
 };
-
 
 
 //----------------------------------  INFO  ------------------------------------
@@ -137,22 +145,20 @@ function mostrarInfoProductos(){
 };
 
 
-function mostrarProdImg(array){
+function mostrarProdImg(){
 
-    let htmlContentToAppend = "";
-
-    for(let images of array){
-
-        htmlContentToAppend += `
-        <div class="col-lg-3 col-md-4 col-5">
-            <div class="d-block mb-4 h-100" id="zoomimage">
-                <img class="img-fluid img-thumbnail" src="` + images + `" alt="">
-            </div>
-        </div>
-        `
-
-        document.getElementById("productImages").innerHTML = htmlContentToAppend;
-    }
+    var imges = prodInfo.images;
+    var slides = "";
+    var i = 0;
+    imges.forEach(img=>{
+    if (i==0){
+        slides+= "<div class='carousel-item active'><img class='dblock w-100' src=" + img +" alt='" + img + "'></div>"
+        } else{
+        slides+= "<div class='carousel-item'><img class='dblock w-100' src=" +img +" alt='" + img + "'></div>"
+        }
+        i++;
+    });
+    document.getElementById("productImages").innerHTML = slides;
 
 };
 
