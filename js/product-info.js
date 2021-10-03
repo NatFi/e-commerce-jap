@@ -114,10 +114,10 @@ function mostrarRelacionados(allproducts){
     
         relac += `
         <div class="row-sm-5 col-md-4">
-            <div class="d-block mb-4 h-100" id="zoomimage">
-                <img class="img-fluid shadow" src="` + allproducts[rel].imgSrc + `" alt="">
-                <h4 class="mb-1 mt-3 ml-5 float-left">`+ allproducts[rel].name +`</h4>
-                <p class="text-muted mt-3 mr-5 float-right">`+ allproducts[rel].currency +` `+ allproducts[rel].cost +`</p>
+            <div class="d-block mb-4 h-100">
+                <img class="img-fluid shadow" id="zoomimage" src="` + allproducts[rel].imgSrc + `" alt="">
+                <h4 class="mb-1 mt-3 ml-4 float-left">`+ allproducts[rel].name +`</h4>
+                <p class="text-muted mt-3 mr-4 float-right">`+ allproducts[rel].currency +` `+ allproducts[rel].cost +`</p>
                 <div class="mb-2 d-flex w-100 justify-content-between border-bottom">
                 <p class="mb-1 mt-3">`+ allproducts[rel].description +`</p>
                 </div>
@@ -154,7 +154,7 @@ function mostrarProdImg(){
     if (i==0){
         slides+= "<div class='carousel-item active'><img class='dblock w-100' src=" + img +" alt='" + img + "'></div>"
         } else{
-        slides+= "<div class='carousel-item'><img class='dblock w-100' src=" +img +" alt='" + img + "'></div>"
+        slides+= "<div class='carousel-item'><img class='dblock w-100' src=" + img +" alt='" + img + "'></div>"
         }
         i++;
     });
@@ -324,13 +324,6 @@ function menospuntuados(){
  
 
  
-
-
-
-
-
-
-
 
 
 
