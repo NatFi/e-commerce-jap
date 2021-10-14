@@ -96,6 +96,7 @@ document.addEventListener("DOMContentLoaded", function(e){
 
    getJSONData(PRODUCTS_URL).then((resultObj) =>{
        if(resultObj.status === "ok"){
+           
            allproducts = resultObj.data;
            mostrarRelacionados(allproducts);
         };
@@ -126,7 +127,6 @@ function mostrarRelacionados(allproducts){
         `
         document.getElementById("relatedProducts").innerHTML = relac;
     };
-    
 };
 
 

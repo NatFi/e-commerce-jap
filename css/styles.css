@@ -161,10 +161,12 @@ a.custom-card:hover {
   padding-right: 10px;
 }
 
-#dejarcoment:focus{    /*  sacar bordes feos al hacer foco! -_-  */
+.sinfoco{    /*  sacar bordes feos al hacer foco! -_-  */
 	outline-width: 0.5px;
 	outline-style: dashed;
 	outline-color: rgba(255, 255, 255, 0.021);
+}
+#dejarcoment{
   color: rgb(4, 131, 57);
 }
 
@@ -200,6 +202,36 @@ body.swal2-shown > [aria-hidden="true"] {
   filter: blur(10px);
 }
 
+/********** DIV Total carrito ***********/
+#cost {
+  position:fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9;
+  padding: 17px 0;
+  background: linear-gradient(to left, #ffffffda, rgba(181, 250, 160, 0.966), #ffffffda);
+  box-shadow: 0 5px 50px 15px rgb(0 0 0 / 30%);
+  text-align: center;
+  font-weight: bold;
+}
+#cost:hover{
+  animation: headShake;
+  animation-duration: 1s;
+  background: linear-gradient(to right, rgba(52, 78, 44, 0.966) ,#ffffffda, rgba(181, 250, 160, 0.966));
+}
+
+#cost.importe {
+  height: 0;
+  line-height: 25px;
+  color: #000000;
+  top: 0;
+  position: relative;
+}
+.monto{
+  font:"Open sans", sans-serif;
+  font-size: 20px;
+}
 
 /****************** zoom imagenes de producto *****************/
 .zoom:hover {
