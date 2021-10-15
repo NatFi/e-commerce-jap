@@ -3,14 +3,16 @@
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
 
-    getJSONData(CART_INFO_URL).then((resultObj) =>{
+    getJSONData(CART_DESAFIATE).then((resultObj) =>{
         if(resultObj.status === "ok"){
           
             cartInfo = resultObj.data;
             mostrarCarrito(cartInfo);
         }
     });
+
 });
+  
  
 
 var cartInfo = {};
@@ -33,15 +35,15 @@ function mostrarCarrito(cartInfo){
                     <div class="col-2 mt-4">
                         <div class="row">
                           <label for="cant" class="float-right"> Cantidad:
-                          <input type="number" value="`+ item.count +`" style="width:40px" class="sinfoco cant-art text-center border-top-0 border-left-0 border-right-0">
+                          <input data-cost="`+ item.unitCost +`" type="number" min="1" onchange="contador();" value="`+ item.count +`" style="width:40px" class="cant-art sinfoco text-center border-top-0 border-left-0 border-right-0">
                           </label>
                         </div>
                     </div>
-                    <div class="col-2 mt-4">
-                      <p><b>Subtotal: </b> `+ " " + item.currency + `</p>
+                    <div class="col-3 mt-4">
+                      <p> <b>Subtotal:</b> `+ " " + item.currency + " " +`<span class="subtotal"> `+ item.unitCost * item.count + `</span></p>
                     </div>
                     <div class="col-1 mt-4">
-                      <button title="Eliminar artículo" onclick="deleteArt();" class="btn btn-sm border-0 btn-outline-secondary"><i class="fa fa-trash-alt light"></i></button>
+                      <button title="Eliminar artículo" onclick="deleteart();" class="btn border-0 btn-outline-danger"><i class="fa fa-trash-alt light"></i></button>
                     </div>
                     `
 
@@ -49,19 +51,38 @@ function mostrarCarrito(cartInfo){
     };
 };
 
-const cantArt = document.getElementsByClassName("cant-art");
 
-for (let art of cantArt){
-    art.addEventListener("change",(event)=>{
-      // let cost = event.target.dataset.cost;
-      // let cant = event.target.value;
-      // console.log(cost * cant);
-      console.log(event.target.value);
+
+let inputValue = document.getElementsByClassName("cant-art");
+//console.log(inputValue);
+  
+function contador(){
+  for (let elem of inputValue){
+    elem.addEventListener("change",(event) =>{
+      let cost = event.target.dataset.cost;
+      let cant = event.target.value;
+     // console.log(cost*cant);
+      let result = cost*cant;
+      document.getElementsByClassName("subtotal").innerHTML=result;
+      //console.log(event.target.value);
     });
+  };
 };
 
-
-function deleteArt(art){
-    cartInfo.articles.splice(art,-1,);
-    mostrarCarrito(cartInfo);
+function deleteart(){
+  cartInfo.articles.splice(i,1);
+  mostrarCarrito(cartInfo);
 }
+
+
+
+/********************** NOTAS  ************************/
+const monthsinicio = ['Jan', 'March', 'April', 'June'];
+monthsinicio.splice(0,1);
+console.log(monthsinicio); /*  array ["March", "April", "June"]   */
+
+
+const monthsfinal = ['Jan', 'March', 'April', 'June'];
+monthsfinal.splice(-1,1);
+console.log(monthsfinal); /*   array ["Jan", "March", "April"]    */ 
+

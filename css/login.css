@@ -77,14 +77,35 @@ body {
 	background: linear-gradient(rgb(107, 189, 228), transparent);
 	color: rgb(1, 16, 20);
 }
+/*
+.formulario button {
+	margin-top: 20px;
+	cursor: pointer;
+	border: none;
+	height: 40px;
+	background-color: transparent;
+	box-shadow: 1px 10px 10px 5px rgb(128, 196, 233);
+	color: rgb(53, 62, 70);
+	border-radius: inherit;
+	outline: none;
+	text-transform: uppercase;
 
+}
 
-/*.formulario button:hover {
+.formulario button:hover {
 	background-color: rgb(128, 196, 233);
 	text-transform: inherit;
 	box-shadow: inherit;
 	font-variant: small-caps;
-}*/
+}
+*/
+
+.formulario button:hover{
+	text-transform: inherit;
+	font-variant: small-caps;
+	animation: rubberBand;
+	animation-duration: 1s;
+}
 
 .ingresa {
 	color: rgb(46, 49, 78);
@@ -157,7 +178,8 @@ input:valid {
 	color: black;
 }
 .btningresar::after {
-	content: "ESAR";
+	content: ""; /*ESAR*/
+	font-family: "Font Awesome 5 Free", Arial, helvetica, sans-serif; 
 	text-align: left;
 	background-color: rgba(8, 176, 248, 0.603);
 	top: 1rem;
@@ -165,8 +187,9 @@ input:valid {
 }
 
 .btningresar::before {
-	content:"INGR";
-	text-align: right;
+	content:"Ingresar"; /*INGR*/ 
+/*	text-align: right;*/
+    text-align:end;
 	background-color: rgba(8, 102, 126, 0.616);
 	top: -1rem;
 	left: 0rem;
@@ -177,12 +200,16 @@ input:valid {
 	left: 9rem;
 	transform: skewx(0deg);
 	background-color: rgba(8, 176, 248, 0.603);
+	text-align: center; /*mueve la flecha*/
+	color: honeydew;
 }
+
 .btningresar:hover::before{
     top: 0;
 	left: -1rem;
 	transform: skewx(0deg);
 	background-color: rgba(8, 102, 126, 0.616);
+	color: honeydew;
 }
 
 
@@ -198,8 +225,11 @@ input:valid {
 	outline-width: 0.5px;
 	outline-style: dashed;
 	outline-color: rgba(255, 255, 255, 0);
-  }
+}
   
 
-/*********************************************************+*/
+/**********************************************************/
 
+.pink{
+	color: linear-gradient(to left, #ffffffda, rgba(181, 250, 160, 0.966), #ffffffda);
+}
