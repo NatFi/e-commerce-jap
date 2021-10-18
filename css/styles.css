@@ -558,3 +558,12 @@ button.back-to-top.show:active {
 .subtotal{
   text-align: center;
 }
+
+.zoom2:hover {
+  transform: scale(1.10);
+  transition: ease 0.7s;
+  filter:saturate(2.3);
+}
+.zoom2 {
+  transition: ease 0.5s;
+}

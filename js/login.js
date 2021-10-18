@@ -12,18 +12,19 @@ function verificar() {
 	} else if (mail.value.trim() === "") {
 		document.getElementById("errore").innerHTML="* requerido";
 	} else {
+		
 		usuario.nombre = nom.value;
 		usuario.correo = mail.value;
 		usuario.estado = "conectado";
 		location.href = "index.html";
 		
-
 		localStorage.setItem("usuario", JSON.stringify(usuario));
 		//localStorage.setItem("email", JSON.stringify(email));
+		
 		sessionStorage.setItem("usuario", JSON.stringify(usuario));
 		//sessionStorage.setItem("email", JSON.stringify(email));
-
 	}
+	
 }
 
 
