@@ -551,6 +551,10 @@ button.back-to-top.show:active {
 
 
 .zoom1:hover{
-  animation: zoomIn;
-  animation-duration: 1s;
+  transition: ease 0.3s;
+  transform:scale(1.3);
+}
+
+.subtotal{
+  text-align: center;
 }

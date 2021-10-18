@@ -12,10 +12,10 @@ document.addEventListener("DOMContentLoaded", function(e){
     });
 
 });
-  
- 
 
-var cartInfo = {};
+let cartInfo = {};
+
+
 
 function mostrarCarrito(cartInfo){
 
@@ -46,29 +46,47 @@ function mostrarCarrito(cartInfo){
                       <button title="Eliminar artículo" onclick="deleteart();" class="btn border-0 btn-outline-danger"><i class="fa fa-trash-alt light"></i></button>
                     </div>
                     `
-
-        document.getElementById("cart").innerHTML=cartHTML;
+         document.getElementById("cart").innerHTML=cartHTML;
     };
 };
 
 
 
-let inputValue = document.getElementsByClassName("cant-art");
-//console.log(inputValue);
-  
 function contador(){
-  for (let elem of inputValue){
-    elem.addEventListener("change",(event) =>{
-      let cost = event.target.dataset.cost;
-      let cant = event.target.value;
-     // console.log(cost*cant);
-      let result = cost*cant;
-      document.getElementsByClassName("subtotal").innerHTML=result;
-      //console.log(event.target.value);
-    });
+
+  let inputCant = document.getElementsByClassName("cant-art");  // cantidad del articulo
+  //console.log(inputCant);
+  
+  for (let elem of inputCant){
+
+    let cost = event.target.dataset.cost;  
+    let cant = event.target.value;
+    //console.log(event.target.value);
+  
+    console.log(cost*cant);
+    let resultTotal = cost*cant;
+
+    let arraySpans = document.getElementsByClassName("subtotal");  // escribir los subtotales de cada art
+    for (let span of arraySpans) {
+     span.innerHTML= resultTotal;
+    };
+    
   };
 };
 
+
+
+
+
+
+
+
+
+
+
+
+
+//en proceso xD
 function deleteart(){
   cartInfo.articles.splice(i,1);
   mostrarCarrito(cartInfo);
@@ -76,10 +94,17 @@ function deleteart(){
 
 
 
-/********************** NOTAS  ************************/
+
+
+
+
+
+
+
+/********************** NOTAS  ***********************
 const monthsinicio = ['Jan', 'March', 'April', 'June'];
 monthsinicio.splice(0,1);
-console.log(monthsinicio); /*  array ["March", "April", "June"]   */
+console.log(monthsinicio); /*  array ["March", "April", "June"]   
 
 
 const monthsfinal = ['Jan', 'March', 'April', 'June'];

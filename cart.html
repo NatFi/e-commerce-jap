@@ -52,10 +52,10 @@
 <body>
   <nav class="site-header sticky-top py-1 bg-dark">
     <div class="container d-flex flex-column flex-md-row justify-content-between">
-      <a class="py-2 d-none d-md-inline-block" href="index.html">Inicio</a>
-      <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
-      <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
-      <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
+      <a class="py-2 d-none d-md-inline-block zoom1" href="index.html">Inicio</a>
+      <a class="py-2 d-none d-md-inline-block zoom1" href="categories.html">Categorías</a>
+      <a class="py-2 d-none d-md-inline-block zoom1" href="products.html">Productos</a>
+      <a class="py-2 d-none d-md-inline-block zoom1" href="sell.html">Vender</a>
       <!--<a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>-->
 
       <a class="nav-link dropdown-toggle text-white-50" id="usuario"  href="#" role="button" aria-controls="navbarNavDarkDropdown"  data-offset="0,7" data-target="#navbarNavDarkDropdown"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
@@ -68,18 +68,18 @@
     </div>
   </nav>
   <div class="container p-5">
+    <lottie-player src="https://assets3.lottiefiles.com/private_files/lf30_x2lzmtdl.json" background="transparent"  speed="1"  style="width: 150px; height: 150px; float:right; position:relative; padding-top: 32px;" loop autoplay></lottie-player>
     <div class="text-center p-4">
       <h2 class="animate__animated animate__pulse">Carrito</h2>
     </div>
-    <p class="lead float-left">Detalle del pedido <span class="badge" id="contador"></span></p>
-    <br><hr>
+    <p class="lead card-header mb-5 light-text bg-success">Detalle del pedido</p>
     <div id="cart" class="row border-bottom">
       <!---- carrito  ---->
     </div>
     <br>
     <div class="row mt-4 mb-5">
       <div class="col-5">
-        <p class="lead mt-3 mb-4">Forma de envío </p>
+        <p class="card-header lead mt-3 mb-5 light-text bg-secondary">Forma de envío </p>
         <input id="envPremium" type="radio" name="envio" value="">
         <label for="envPremium">Premium: (2-5 días) + 15%</label>
         <br>
@@ -90,7 +90,7 @@
         <label for="envStandard">Standard: (12-15 días) + 5%</label>
       </div>
       <div class="col-6 border-left">
-        <p class="lead mt-3 mb-4">Dirección de envío </p>
+        <p class="card-header lead mt-3 mb-5 light-text bg-secondary">Dirección de envío </p>
         <label for="calle">Calle: <input id="calle" type="text" name="calle" value="" class=" mr-4 sinfoco border-top-0 border-left-0 border-right-0">
         </label>
         <label for="numPuerta">Número de puerta: <input id="numPuerta" type="number" name="numPuerta" value="" style="width:70px" class="sinfoco border-top-0 border-left-0 border-right-0">
@@ -120,6 +120,7 @@
   <script src="js/init.js"></script>
   <script src="js/cart.js"></script>
   <script src="js/desconectar.js"></script>
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 </body>
 
 </html>
