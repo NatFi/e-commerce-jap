@@ -67,15 +67,54 @@
         </div>
     </div>
   </nav>
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 6 (Fecha de entrega: 31/10/2021).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+  <div class="container pt-5 pl-5">
+    <div class="row ml-5">
+      <div class="col">
+      <h2 class="animate__animated animate__pulse">Perfil</h2>
+    </div>
+    <div class="flex-row mr-5">
+      <button id="edit-btn" class="type2 float-right" title="Editar datos"><i class="fa fa-pencil-alt pr-2"></i></button>
     </div>
   </div>
-  <footer class="text-muted bg-light">
+  <!--<hr class="my-3 shadow-sm border-light">-->
+  <div class="container p-3 shadow">
+    <div class="row">
+      <div class="col-7 ml-5">
+        <!---->
+        <!--<label for="img" class="float-right mr-5"><input type="file" id="img"></label>-->
+        <!--<img style="float: right;" id="img" src="http://static.13.cl/7/sites/all/themes/portal/resources/images/logo_13cl-2x.png">-->
+        <!---->
+        <label for="name">  <!--el nombre y email lo pongo desde que detecto si hay un usuario logeado, en desconectar.js-->
+          <input disabled name="info" id="name" type="text" class="border-info sinfoco mt-4 border-top-0 border-left-0 border-right-0" placeholder="Nombre">
+        </label>
+        <label for="apell">
+          <input disabled name="info" id="apell" type="text" class="border-info sinfoco ml-2 mt-4 border-top-0 border-left-0 border-right-0" placeholder="Apellido">
+        </label>
+        <br>
+        <label for="edad">
+          <input disabled name="info" id="edad"  type="number" class="border-info sinfoco mt-4 border-top-0 border-left-0 border-right-0" placeholder="Edad">
+        </label>
+        <br>
+        <label for="email"> 
+          <input disabled name="info" id="email" type="email" class="border-info sinfoco mt-4 border-top-0 border-left-0 border-right-0" placeholder="E-mail">
+        </label>
+        <br>    
+        <label for="tel">
+          <input disabled name="info" id="tel" type="tel" class="border-info sinfoco mt-4 border-top-0 border-left-0 border-right-0" placeholder="Teléfono">
+        </label>
+        <br>
+      </div>
+      <div class="col-4">
+        <a href="https://ibb.co/wJGyRCW" class="float-right"><img src="https://i.ibb.co/pWV2xZz/a2img.jpg" alt="a2img" width="100" height="100" style="border-radius: 50%;"></a>
+      </div>
+    </div>
+    
+    <div class="flex-md-row text-md-center gradient-profile">
+      <button class="type2" id="btn-guardar-perfil">Guardar datos</button>
+    </div>
+  </div>
+  <hr class="my-5 shadow-sm">
+  <footer class="text-muted bg-light mt-5">
     <div class="container">
       <p>Este sitio forma parte de Desarrollo Web - JAP - 2021</p>
       <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>

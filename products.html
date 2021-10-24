@@ -30,12 +30,12 @@
 
   </head>
   <body>
-    <nav class="site-header sticky-top py-1 bg-dark">
-      <div class="container d-flex flex-column flex-md-row justify-content-between">
-        <a class="py-2 d-none d-md-inline-block zoom1" href="index.html">Inicio</a>
-        <a class="py-2 d-none d-md-inline-block zoom1" href="categories.html">Categorías</a>
-        <a class="py-2 d-none d-md-inline-block zoom1" href="products.html">Productos</a>
-        <a class="py-2 d-none d-md-inline-block zoom1" href="sell.html">Vender</a>
+    <nav class="site-header sticky-top py-1 bg-dark d-flex flex-column flex-md-row justify-content-between topnav" id="topnav">
+      <div class="container d-flex flex-column">
+        <a class="py-2 d-md-inline-block zoom1" href="index.html">Inicio</a>
+        <a class="py-2 d-md-inline-block zoom1" href="categories.html">Categorías</a>
+        <a class="py-2 d-md-inline-block zoom1" href="products.html">Productos</a>
+        <a class="py-2 d-md-inline-block zoom1" href="sell.html">Vender</a>
        <!-- <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a> -->
         
         <!-------------------------dropdown usuario--------------------------->
@@ -46,61 +46,55 @@
           <div class="dropdown-divider"></div>
           <button class="dropdown-item bg-dark btn-dark text-white-50 h-auto" onclick="desconectar();">Desconectar <i class="fas fa-sign-out-alt pl-2"></i></button>
         </div>
-
+        <a class="py-2 zoom1 icon-nav" href="javascript:void(0);" onclick="receptiveNav();"> <i class="fa fa-bars"></i></a>
       </div>
     </nav>
     <main role="main" class="pb-5">
-
       <div class="text-center p-4">
           <h2 class="animate__animated animate__pulse">Productos</h2>
           <p class="lead">Aqui verás nuestros productos y una breve descripción sobre ellos.</p>
       </div>
-
       <div class="container">
-
-        <div class="row">
-          <div class="col text-right">
-            <div class="mb-4 mt-4 mr-2 btn-group input-group-text border-0 pl-3 ">
-
+        <div class="row bg-transparent mb-3 btn-group input-group-text border-0">
               <!-------------------Orden alfabetico------------------>
-              <div class="btn-group btn-group">
+              <div class="col-md-2 btn-groups">
                <button class="btn btn-light btn-outline-secondary border-0 text-wrap" id="AZ" > <i class="fas fa-sort-alpha-up"></i> </button>
                <button class="btn btn-light btn-outline-secondary border-0 text-wrap" id="ZA" > <i class="fas fa-sort-alpha-down-alt "></i> </button>
-              </div>
-              <!-------------Ordenar por precio y relevancia---------->
-              <div class="btn btn-group">
+              <!-------------Ordenar por precio y relevancia---------->  
                <button class="btn btn-light btn-outline-secondary border-0 text-wrap" id="$asc" >U$D<i class="fas fa-sort-numeric-up"></i></button>
                <button class="btn btn-light btn-outline-secondary border-0 text-wrap" id="$desc"><i class="fas fa-sort-numeric-down-alt "></i>U$D</button>
               </div>
-              <div class="btn-group">
+               <!--relevancia-->
+              <div class="col-md-2 ml-5 btn-group">
                <button class="btn btn-light btn-outline-secondary border-0 text-wrap" id="relevancia" ><i class="fas fa-sort-amount-down"></i>Relevancia</button>
               </div>
               <!-----------------------Buscador----------------------->
-              <div class="mx-1 btn btn-group">
+              <div class="col-md-2 btn-group mr-5">
                <label for="buscador">
                 <input class="mt-2 btn btn-light" type="search" id="buscador" placeholder="    Buscar... "/>  <!--placeholder="  Buscar productos   &#x2315"-->
                </label>
               </div>
+        
+            <div class="row bg-transparent mb-3 btn-group input-group-text border-0"></div>
               <!------------------------Filtrado---------------------->   
-              <div class="btn-sm btn-group">
+              <div class="col-md-4 btn-group mt-2 d-flex">
                 <label for="min"><i class="fa fa-search-dollar"></i>
-                 <input class="mt-2 btn btn-light" type="number" id="min" placeholder="Ingrese valor mínimo">
+                 <input class="btn btn-light" type="number" id="min" placeholder="Mínimo">
                 </label>
                 <label for="max">
-                 <input class="mt-2 btn btn-light" type="number" id="max" placeholder="Ingrese valor máximo">
-                </label> 
-                <button class="btn btn-sm my-md-2 border-0 btn-outline-secondary" title="Borrar filtros" id="limpiar" onclick="limpiar();"><i class="fa fa-eraser"></i></button>
+                 <input class="btn btn-light" type="number" id="max" placeholder="Máximo">
+                </label>
+                <button class="btn btn-sm border-0 btn-outline-secondary" title="Borrar filtros" id="limpiar" onclick="limpiar();"><i class="fa fa-eraser"></i></button>
               </div>
             </div>
-          </div>
         </div>
-
-        <div class="row">
-          <div class="list-group" id="prod-list-container">
+      </div>
+      <div class="album py-5 bg-light">
+        <div class="container">
+          <div class="row" id="prod-list-container">
             <!--htmlContentToAppend-->
           </div>
         </div>
-
       </div>
     </main>
     <footer class="text-muted bg-light">

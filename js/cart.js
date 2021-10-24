@@ -72,9 +72,7 @@ function contador(){
     };
     
   };
-};
-
-
+}
 
 
 

@@ -7,22 +7,17 @@ function mostrarProductos(array){
      for(let product of array){
 
         htmlContentToAppend += `
-        <a href="product-info.html" class="list-group-item list-group-item-action">
-            <div class="row">
-                <div class="col-3">
-                    <img src="` + product.imgSrc + `" alt="` + product.description + `" class="img-thumbnail">
+        <div class="col-md-4 zoom2">
+            <a href="product-info.html" class="card mb-3 custom-card">
+                    <img src="` + product.imgSrc + `" alt="` + product.description + `" class="bd-placeholder-img card-img-top">
+                    <h4 class="m-3 text-center">`+ product.name +`</h4>
+                    <p class="mb-1 mt-2 text-center"><b>`+ product.currency +` `+ product.cost +` </b></p>
+                <div class="card-body">
+                    <p class="mb-1 card-text">`+ product.description +`</p>
+                    <small class="text-muted text-center float-right">` + product.soldCount + ` vendidos</small>
                 </div>
-                <div class="col">
-                    <div class="d-flex w-100 justify-content-between">
-                        <h4 class="mb-1">`+ product.name +`</h4>
-                        <small class="text-muted">` + product.soldCount + ` vendidos</small>
-                    </div>
-                        <p class="mb-1">`+ product.description +`</p>
-                        <p class="mb-1">`+ product.currency +` `+ product.cost +`</p>
-                    </div>
-                </div>
-            </div>
-        </a>
+            </a>
+        </div>
         `
 
         document.getElementById("prod-list-container").innerHTML = htmlContentToAppend;

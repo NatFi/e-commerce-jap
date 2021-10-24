@@ -20,7 +20,6 @@ function verificar() {
 		
 		localStorage.setItem("usuario", JSON.stringify(usuario));
 		//localStorage.setItem("email", JSON.stringify(email));
-		
 		sessionStorage.setItem("usuario", JSON.stringify(usuario));
 		//sessionStorage.setItem("email", JSON.stringify(email));
 	}

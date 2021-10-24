@@ -80,6 +80,15 @@ for(var i=0;i<10;i++){
   $('#content').append(skeleton); 
 }
 
+// **************** NAV-RESPONSIVE  ******************
 
-
+/* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */
+function receptiveNav() {
+  var nav = document.getElementById("topnav");
+  if (nav.className === "topnav") {
+    nav.className += " responsive";
+  } else {
+    nav.className = "topnav";
+  }
+}
 
