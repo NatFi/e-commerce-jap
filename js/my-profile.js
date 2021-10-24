@@ -17,6 +17,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
         let inputs = document.getElementsByName("info");
         for(let i=0; i < inputs.length; i++){
             inputs[i].disabled = false;
+            inputs[i].classList.add("blue");
         };
     });
 
@@ -25,9 +26,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
         guardarPerfil();                                                          
     });
 
-    document.getElementById("img").addEventListener("click",()=>{
-       selectImg();
-    });
+
 
 
     let imgbase64 = convertir(document.getElementById("img"));
@@ -49,7 +48,6 @@ function guardarPerfil() {
     let tel = document.getElementById("tel");
 
     let perfil = {};
-
     perfil.nombre = name.value;
     perfil.apellido = apell.value;
     perfil.edad = edad.value;

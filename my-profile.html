@@ -85,21 +85,26 @@
         <!--<img style="float: right;" id="img" src="http://static.13.cl/7/sites/all/themes/portal/resources/images/logo_13cl-2x.png">-->
         <!---->
         <label for="name">  <!--el nombre y email lo pongo desde que detecto si hay un usuario logeado, en desconectar.js-->
-          <input disabled name="info" id="name" type="text" class="border-info sinfoco mt-4 border-top-0 border-left-0 border-right-0" placeholder="Nombre">
+          <i class="fa fa-user-alt" style="color:rgb(70, 69, 69);"></i>
+          <input disabled id="name" type="text" class="border-info sinfoco mt-4 border-top-0 border-left-0 border-right-0" placeholder="Nombre">
         </label>
+        <label for="email" class="ml-3">
+          <i class="fa fa-envelope" style="color:rgb(70, 69, 69);"></i>
+          <input disabled id="email" type="email" class="border-info sinfoco mt-4 border-top-0 border-left-0 border-right-0" placeholder="E-mail">
+        </label>
+        <br>
         <label for="apell">
-          <input disabled name="info" id="apell" type="text" class="border-info sinfoco ml-2 mt-4 border-top-0 border-left-0 border-right-0" placeholder="Apellido">
+          <i class="fa fa-user-edit" style="color:dimgray;"></i>
+          <input disabled name="info" id="apell" type="text" class="border-info sinfoco mt-4 border-top-0 border-left-0 border-right-0" placeholder="Apellido">
         </label>
-        <br>
+        <br>   
         <label for="edad">
-          <input disabled name="info" id="edad"  type="number" class="border-info sinfoco mt-4 border-top-0 border-left-0 border-right-0" placeholder="Edad">
+          <i class="fa fa-birthday-cake" style="color:dimgray;"></i>
+          <input disabled name="info" id="edad" type="number" class="border-info sinfoco mt-4 border-top-0 border-left-0 border-right-0" placeholder="Edad">
         </label>
-        <br>
-        <label for="email"> 
-          <input disabled name="info" id="email" type="email" class="border-info sinfoco mt-4 border-top-0 border-left-0 border-right-0" placeholder="E-mail">
-        </label>
-        <br>    
+        <br> 
         <label for="tel">
+          <i class="fa fa-phone-alt" style="color:dimgray;"></i>
           <input disabled name="info" id="tel" type="tel" class="border-info sinfoco mt-4 border-top-0 border-left-0 border-right-0" placeholder="Teléfono">
         </label>
         <br>

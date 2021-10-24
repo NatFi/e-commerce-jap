@@ -640,5 +640,9 @@ input:disabled{
 }
 
 .gradient-profile{
-  background: linear-gradient(to top,rgba(128, 128, 128, 0.089),rgba(0, 140, 255, 0.020),transparent);
+  background: linear-gradient(to top,rgba(128, 128, 128, 0.089),rgba(43, 154, 245, 0.02),transparent);
+}
+
+.blue{
+  color: rgb(5, 107, 133);
 }
