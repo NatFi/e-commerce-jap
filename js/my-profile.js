@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
     if (perfil != null){
       document.getElementById("foto").src = perfil.imagen;
     } else {
-      preview.src = "../img/jap.png";
+      preview.src = "img/jap.png";
     }
    
 
@@ -124,7 +124,7 @@ function previewFile() {
       reader.readAsDataURL(file);
      
     } else {
-      preview.src = "../img/jap.png";
+      preview.src = "img/jap.png";
     }
   }
 
