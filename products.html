@@ -30,24 +30,40 @@
 
   </head>
   <body>
-    <nav class="site-header sticky-top py-1 bg-dark d-flex flex-column flex-md-row justify-content-between topnav" id="topnav">
-      <div class="container d-flex flex-column">
-        <a class="py-2 d-md-inline-block zoom1" href="index.html">Inicio</a>
-        <a class="py-2 d-md-inline-block zoom1" href="categories.html">Categorías</a>
-        <a class="py-2 d-md-inline-block zoom1" href="products.html">Productos</a>
-        <a class="py-2 d-md-inline-block zoom1" href="sell.html">Vender</a>
-       <!-- <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a> -->
-        
-        <!-------------------------dropdown usuario--------------------------->
-        <a class="nav-link dropdown-toggle text-white-50" id="usuario"  href="#" role="button" aria-controls="navbarNavDarkDropdown"  data-offset="0,7" data-target="#navbarNavDarkDropdown"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
-        <div class="dropdown-menu bg-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-          <a class="dropdown-item bg-dark text-white-50 h-auto" href="my-profile.html">Mi perfil <i class="fas fa-user-circle pl-2"></i></a>
-          <a class="dropdown-item bg-dark text-white-50 h-auto" href="cart.html">Ver mi carrito <i class="fas fa-shopping-cart pl-2"></i></a>
-          <div class="dropdown-divider"></div>
-          <button class="dropdown-item bg-dark btn-dark text-white-50 h-auto" onclick="desconectar();">Desconectar <i class="fas fa-sign-out-alt pl-2"></i></button>
-        </div>
-        <a class="py-2 zoom1 icon-nav" href="javascript:void(0);" onclick="receptiveNav();"> <i class="fa fa-bars"></i></a>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" 
+        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" 
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto ml-5">
+          <li class="nav-item">
+            <a class="nav-link zoom1" href="index.html">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link zoom1" href="categories.html">Categorías</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link zoom1" href="products.html">Productos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link zoom1" href="sell.html">Vender</a>
+          </li>
+        </ul>
       </div>
+      <!-------------------------dropdown usuario--------------------------->
+      <a class="nav-link text-white-50 pr-5" id="usuario" href="#" role="button" 
+        aria-controls="navbarNavDarkDropdown" data-offset="0,7" data-target="#navbarNavDarkDropdown"  
+        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      </a>
+      <div class="dropdown-menu dropdown-menu-right bg-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+        <a class="dropdown-item bg-dark text-white-50 h-auto" href="my-profile.html"><i class="fas fa-user-circle pr-2"></i>Mi perfil</a>
+        <a class="dropdown-item bg-dark text-white-50 h-auto" href="cart.html"><i class="fas fa-shopping-cart pr-2"></i>Ver mi carrito</a>
+        <div class="dropdown-divider"></div>
+        <button class="dropdown-item bg-dark btn-dark text-white-50 h-auto" onclick="desconectar();"><i class="fas fa-sign-out-alt pr-2"></i>Desconectar</button>
+      </div>
+      <!--------------------------------------------------------------------->
     </nav>
     <main role="main" class="pb-5">
       <div class="text-center p-4">
@@ -57,32 +73,30 @@
       <div class="container">
         <div class="row bg-transparent mb-3 btn-group input-group-text border-0">
               <!-------------------Orden alfabetico------------------>
-              <div class="col-md-2 btn-groups">
-               <button class="btn btn-light btn-outline-secondary border-0 text-wrap" id="AZ" > <i class="fas fa-sort-alpha-up"></i> </button>
-               <button class="btn btn-light btn-outline-secondary border-0 text-wrap" id="ZA" > <i class="fas fa-sort-alpha-down-alt "></i> </button>
-              <!-------------Ordenar por precio y relevancia---------->  
-               <button class="btn btn-light btn-outline-secondary border-0 text-wrap" id="$asc" >U$D<i class="fas fa-sort-numeric-up"></i></button>
-               <button class="btn btn-light btn-outline-secondary border-0 text-wrap" id="$desc"><i class="fas fa-sort-numeric-down-alt "></i>U$D</button>
+              <div class="col">
+                <button class="btn btn-light btn-outline-secondary border-0 text-wrap" id="AZ" > <i class="fas fa-sort-alpha-up"></i> </button>
+                <button class="btn btn-light btn-outline-secondary border-0 text-wrap" id="ZA" > <i class="fas fa-sort-alpha-down-alt "></i> </button>
+                <!-------------Ordenar por precio y relevancia---------->  
+                <button class="btn btn-light btn-outline-secondary border-0 text-wrap" id="$asc" >U$D<i class="fas fa-sort-numeric-up"></i></button>
+                <button class="btn btn-light btn-outline-secondary border-0 text-wrap" id="$desc"><i class="fas fa-sort-numeric-down-alt "></i>U$D</button>
               </div>
-               <!--relevancia-->
-              <div class="col-md-2 ml-5 btn-group">
-               <button class="btn btn-light btn-outline-secondary border-0 text-wrap" id="relevancia" ><i class="fas fa-sort-amount-down"></i>Relevancia</button>
+              <div class="col">
+                <!--relevancia-->           
+                <button class="btn btn-light btn-outline-secondary border-0 text-wrap" id="relevancia" ><i class="fas fa-sort-amount-down"></i>Relevancia</button>
               </div>
               <!-----------------------Buscador----------------------->
-              <div class="col-md-2 btn-group mr-5">
-               <label for="buscador">
-                <input class="mt-2 btn btn-light" type="search" id="buscador" placeholder="    Buscar... "/>  <!--placeholder="  Buscar productos   &#x2315"-->
-               </label>
+              <div class="col">
+                <label for="buscador">
+                  <input class="mt-2 btn btn-light" type="search" id="buscador" placeholder="    Buscar... "/>  <!--placeholder="  Buscar productos   &#x2315"-->
+                </label>
               </div>
-        
-            <div class="row bg-transparent mb-3 btn-group input-group-text border-0"></div>
               <!------------------------Filtrado---------------------->   
-              <div class="col-md-4 btn-group mt-2 d-flex">
+              <div class="col mt-2">
                 <label for="min"><i class="fa fa-search-dollar"></i>
-                 <input class="btn btn-light" type="number" id="min" placeholder="Mínimo">
+                  <input class="btn btn-light" type="number" id="min" placeholder="Mínimo" style="width: 100px;">
                 </label>
                 <label for="max">
-                 <input class="btn btn-light" type="number" id="max" placeholder="Máximo">
+                  <input class="btn btn-light" type="number" id="max" placeholder="Máximo" style="width: 100px;">
                 </label>
                 <button class="btn btn-sm border-0 btn-outline-secondary" title="Borrar filtros" id="limpiar" onclick="limpiar();"><i class="fa fa-eraser"></i></button>
               </div>

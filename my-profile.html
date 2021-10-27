@@ -63,7 +63,7 @@
           <!--<a class="dropdown-item bg-dark text-white-50 h-auto" href="my-profile.html">Mi perfil</a>-->
           <a class="dropdown-item bg-dark text-white-50 h-auto" href="cart.html">Ver mi carrito <i class="fas fa-shopping-cart pl-2"></i></a>
           <div class="dropdown-divider"></div>
-          <button class="dropdown-item bg-dark btn-dark text-white-50 h-auto" onclick="desconectar();">Desconectar <i class="fas fa-sign-out-alt pl-2"></i></button>
+          <button class="dropdown-item bg-dark btn-dark text-white-50 h-auto" onclick="desconectar();">Salir<i class="fas fa-sign-out-alt pl-2"></i></button>
         </div>
     </div>
   </nav>
@@ -79,42 +79,56 @@
   <!--<hr class="my-3 shadow-sm border-light">-->
   <div class="container p-3 shadow">
     <div class="row">
-      <div class="col-7 ml-5">
+      <div class="col text-center mt-4">
+       <!--<a href="https://imgbb.com/">
+            <img id="img" src="https://i.ibb.co/wKzCZpx/jap.png" alt="jap" 
+            style="border-radius: 50%;" id="profile-img"/>
+          </a>-->
+        <!----><img id="foto" src="" height="100" width="100"  alt="Acá va la imagen..." style="border-radius: 50%;">
+        <br><br>
+        <!--<input type="file" onchange="previewFile();" placeholder=""><br>-->
+        <div class="drag-drop">
+            <label for="photo" style="color: black; font-weight: bold;">Incluya una foto</label>
+              <input id="photo" type="file" onchange="previewFile();" placeholder=""><br>
+            </label> 
+            <span class="fa-stack fa-1x">
+                <i class="fa fa-cloud fa-stack-2x bottom pulsating"></i>
+                <i class="fa fa-circle fa-stack-1x top medium"></i>
+                <i class="fa fa-arrow-circle-up fa-stack-1x top"></i>
+            </span>
+            <span class="desc">Pulse aquí para subir su foto</span>
+        </div>
         <!---->
-        <!--<label for="img" class="float-right mr-5"><input type="file" id="img"></label>-->
-        <!--<img style="float: right;" id="img" src="http://static.13.cl/7/sites/all/themes/portal/resources/images/logo_13cl-2x.png">-->
-        <!---->
-        <label for="name">  <!--el nombre y email lo pongo desde que detecto si hay un usuario logeado, en desconectar.js-->
-          <i class="fa fa-user-alt" style="color:rgb(70, 69, 69);"></i>
+        <label for="name" class="mt-5">  <!--el nombre y email lo pongo desde que detecto si hay un usuario logeado, en desconectar.js-->
+          <i class="fa fa-user-alt" style="color:rgb(55, 75, 117);"></i>
           <input disabled id="name" type="text" class="border-info sinfoco mt-4 border-top-0 border-left-0 border-right-0" placeholder="Nombre">
-        </label>
-        <label for="email" class="ml-3">
-          <i class="fa fa-envelope" style="color:rgb(70, 69, 69);"></i>
+        </label><br>
+        <label for="email" class="mt-2">
+          <i class="fa fa-envelope" style="color:rgb(55, 75, 117);"></i>
           <input disabled id="email" type="email" class="border-info sinfoco mt-4 border-top-0 border-left-0 border-right-0" placeholder="E-mail">
         </label>
-        <br>
-        <label for="apell">
+      </div>
+      <div class="col text-center">
+        <h5 class="mt-5 blue" style="letter-spacing: 0.5px;">Edita tus datos</h5>
+        <hr class="border-light">
+        <label for="apell" class="mt-2">
           <i class="fa fa-user-edit" style="color:dimgray;"></i>
           <input disabled name="info" id="apell" type="text" class="border-info sinfoco mt-4 border-top-0 border-left-0 border-right-0" placeholder="Apellido">
         </label>
         <br>   
-        <label for="edad">
+        <label for="edad" class="mt-2">
           <i class="fa fa-birthday-cake" style="color:dimgray;"></i>
           <input disabled name="info" id="edad" type="number" class="border-info sinfoco mt-4 border-top-0 border-left-0 border-right-0" placeholder="Edad">
         </label>
         <br> 
-        <label for="tel">
+        <label for="tel" class="mt-2">
           <i class="fa fa-phone-alt" style="color:dimgray;"></i>
           <input disabled name="info" id="tel" type="tel" class="border-info sinfoco mt-4 border-top-0 border-left-0 border-right-0" placeholder="Teléfono">
         </label>
         <br>
       </div>
-      <div class="col-4">
-        <a href="https://ibb.co/wJGyRCW" class="float-right"><img src="https://i.ibb.co/pWV2xZz/a2img.jpg" alt="a2img" width="100" height="100" style="border-radius: 50%;"></a>
-      </div>
-    </div>
-    
-    <div class="flex-md-row text-md-center gradient-profile">
+    </div> 
+    <div class="col-12 text-center gradient-profile mt-5">
       <button class="type2" id="btn-guardar-perfil">Guardar datos</button>
     </div>
   </div>
