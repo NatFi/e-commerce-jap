@@ -87,18 +87,6 @@
         <!----><img id="foto" src="" height="100" width="100"  alt="Acá va la imagen..." style="border-radius: 50%;">
         <br><br>
         <!--<input type="file" onchange="previewFile();" placeholder=""><br>-->
-        <div class="drag-drop">
-            <label for="photo" style="color: black; font-weight: bold;">Incluya una foto</label>
-              <input id="photo" type="file" onchange="previewFile();" placeholder=""><br>
-            </label> 
-            <span class="fa-stack fa-1x">
-                <i class="fa fa-cloud fa-stack-2x bottom pulsating"></i>
-                <i class="fa fa-circle fa-stack-1x top medium"></i>
-                <i class="fa fa-arrow-circle-up fa-stack-1x top"></i>
-            </span>
-            <span class="desc">Pulse aquí para subir su foto</span>
-        </div>
-        <!---->
         <label for="name" class="mt-5">  <!--el nombre y email lo pongo desde que detecto si hay un usuario logeado, en desconectar.js-->
           <i class="fa fa-user-alt" style="color:rgb(55, 75, 117);"></i>
           <input disabled id="name" type="text" class="border-info sinfoco mt-4 border-top-0 border-left-0 border-right-0" placeholder="Nombre">
@@ -111,6 +99,20 @@
       <div class="col text-center">
         <h5 class="mt-5 blue" style="letter-spacing: 0.5px;">Edita tus datos</h5>
         <hr class="border-light">
+        <!---->
+        <div class="drag-drop">
+          <label for="photo" style="color: black; font-weight: bold;">Sube aqui tu foto</label>
+            <input id="photo" type="file" onchange="previewFile();" placeholder="">
+          </label>
+          <br>
+          <span class="fa-stack fa-1x">
+              <i class="fa fa-cloud fa-stack-2x bottom pulsating"></i>
+              <i class="fa fa-circle fa-stack-1x top medium"></i>
+              <i class="fa fa-arrow-circle-up fa-stack-1x top"></i>
+          </span>
+          <span class="desc">Pulse aquí para subir su foto</span>
+        </div>
+        <!---->
         <label for="apell" class="mt-2">
           <i class="fa fa-user-edit" style="color:dimgray;"></i>
           <input disabled name="info" id="apell" type="text" class="border-info sinfoco mt-4 border-top-0 border-left-0 border-right-0" placeholder="Apellido">
