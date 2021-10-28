@@ -3,21 +3,35 @@
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function (e) {
 
-    let perfil = JSON.parse(localStorage.getItem("perfil"));
-    if (perfil !== null){
-       // document.getElementById("name").value = perfil.nombre;
-        document.getElementById("apell").value = perfil.apellido;
-        document.getElementById("edad").value = perfil.edad;
-       // document.getElementById("email").value = perfil.email;
-        document.getElementById("tel").value = perfil.tel;
+    let usuario = JSON.parse(localStorage.getItem("usuario"));
+	  if(usuario !== null){
+	    document.getElementById("name").value = usuario.nombre; // nombre en perfil
+		  document.getElementById("email").value = usuario.correo; // correo en perfil
     };
+  
+    
+    let perfil = JSON.parse(localStorage.getItem("perfil"));
+    let preview = document.getElementById("foto");
+    if (perfil !== null){
+      // document.getElementById("name").value = perfil.nombre;
+      document.getElementById("apell").value = perfil.apellido;
+      document.getElementById("edad").value = perfil.edad;
+      // document.getElementById("email").value = perfil.email;
+      document.getElementById("tel").value = perfil.tel;
+      document.getElementById("foto").src = perfil.imagen;
+    } else {
+      preview.src = "img/img-prof.ico";
+    };
+
+
+    
 
 
     document.getElementById("edit-btn").addEventListener("click",()=>{
         let inputs = document.getElementsByName("info");
         for(let i=0; i < inputs.length; i++){
             inputs[i].disabled = false;
-            inputs[i].classList.add("blue");
+            inputs[i].classList.add("blueI");
         };
     });
 
@@ -35,15 +49,6 @@ document.addEventListener("DOMContentLoaded", function (e) {
     console.log(imgbase64);
     */
 
-    let preview = document.getElementById("foto");
-    if (perfil != null){
-      document.getElementById("foto").src = perfil.imagen;
-    } else {
-      preview.src = "img/img-prof.ico";
-    }
-   
-
-   
 });
 
  /*** *** *** *** *** *** *** *** *** *** *** *** *** ***/  
@@ -51,22 +56,22 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
 function guardarPerfil() {
     
-    let name = document.getElementById("name");
+  //  let name = document.getElementById("name");
     let apell = document.getElementById("apell");
     let edad = document.getElementById("edad");
-    let email = document.getElementById("email");
+  //  let email = document.getElementById("email");
     let tel = document.getElementById("tel");
     let preview = document.getElementById("foto");
 
     let perfil = {};
-    perfil.nombre = name.value;
+   // perfil.nombre = name.value;
     perfil.apellido = apell.value;
     perfil.edad = edad.value;
-    perfil.email = email.value;
+   // perfil.email = email.value;
     perfil.tel = tel.value;
     perfil.imagen = preview.src;
    
-    localStorage.setItem('usuario', JSON.stringify(perfil));
+    localStorage.setItem('perfil', JSON.stringify(perfil));
     //localStorage.setItem("perfil", JSON.stringify(perfil));
 
     /* alert */
