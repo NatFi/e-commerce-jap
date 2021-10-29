@@ -1,5 +1,6 @@
 function desconectar() {
 	localStorage.removeItem("usuario");
+	localStorage.removeItem("perfil");
 	location.href = "login.html";
 	signOut();
 }
