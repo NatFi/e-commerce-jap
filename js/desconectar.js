@@ -9,9 +9,10 @@ function desconectar() {
 
 document.addEventListener("DOMContentLoaded", function(e){
 	let usuario = JSON.parse(localStorage.getItem("usuario"));
+	
 	if(usuario !== null){
-		document.getElementById("usuario").innerHTML="Hola!" +" "+ usuario.nombre; //nombre en navbar
-	    //document.getElementById("nombreusercoment").innerHTML= `<p class="ml-3 mb-2 mt-2"> <i class="green fas fa-user mx-2"></i>` + " " + `<b class="green">` +" "+ usuario.nombre + `</b>`+ " " + "queremos conocer tu opinión!" +`</p>`;
+		document.getElementById("usuario").innerHTML="Hola!" +" "+ usuario.nombre + `<img src="" alt="foto" class="abc"></img>`; //nombre en navbar
+		//document.getElementById("nombreusercoment").innerHTML= `<p class="ml-3 mb-2 mt-2"> <i class="green fas fa-user mx-2"></i>` + " " + `<b class="green">` +" "+ usuario.nombre + `</b>`+ " " + "queremos conocer tu opinión!" +`</p>`;
 		}else{
 			Swal.fire({
 				//title: '¡Hola!',
@@ -47,6 +48,13 @@ document.addEventListener("DOMContentLoaded", function(e){
 			//location.href="login.html";
 		}
 		
+		let perfil = JSON.parse(localStorage.getItem("perfil"));
+		let image = document.getElementsByClassName("abc");
+		if(perfil !== null){
+			image[0].src = perfil.imagen;
+		} else {
+			image[0].src = "img/img-prof.ico";
+		}
 	});
 
 

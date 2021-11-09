@@ -24,8 +24,6 @@ document.addEventListener("DOMContentLoaded", function (e) {
     };
 
 
-    
-
 
     document.getElementById("edit-btn").addEventListener("click",()=>{
         let inputs = document.getElementsByName("info");
@@ -56,10 +54,10 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
 function guardarPerfil() {
     
-  //  let name = document.getElementById("name");
+  // let name = document.getElementById("name");
     let apell = document.getElementById("apell");
     let edad = document.getElementById("edad");
-  //  let email = document.getElementById("email");
+  // let email = document.getElementById("email");
     let tel = document.getElementById("tel");
     let preview = document.getElementById("foto");
 
@@ -72,7 +70,7 @@ function guardarPerfil() {
     perfil.imagen = preview.src;
    
     localStorage.setItem('perfil', JSON.stringify(perfil));
-    //localStorage.setItem("perfil", JSON.stringify(perfil));
+   // localStorage.setItem("perfil", JSON.stringify(perfil));
 
     /* alert */
     const Toast = Swal.mixin({
@@ -130,10 +128,7 @@ function previewFile() {
      
     } else {
       preview.src = "img/img-prof.ico";
-    }
-  }
-
-
-
+    } 
+}
 
 

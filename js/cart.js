@@ -3,19 +3,17 @@
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
 
-    getJSONData(CART_DESAFIATE).then((resultObj) =>{
-        if(resultObj.status === "ok"){
-          
-            cartInfo = resultObj.data;
-            mostrarCarrito(cartInfo);
-        }
-    });
+  getJSONData(CART_DESAFIATE).then((resultObj) =>{
+    if(resultObj.status === "ok"){
+      cartInfo = resultObj.data;
+      mostrarCarrito(cartInfo);
+    }
+  });
 
+  metEnv();
 });
 
 let cartInfo = {};
-
-
 
 function mostrarCarrito(cartInfo){
 
@@ -26,16 +24,16 @@ function mostrarCarrito(cartInfo){
 
         cartHTML += `
                     <div class="col-2 d-block mb-4 h-100">
-                      <img src="` + item.src + `" alt="" class="mb-3 shadow border-0 img-fluid dblock">
+                    <img src="` + item.src + `" alt="" class="mb-3 shadow border-0 img-fluid dblock">
                     </div>
                     <div class="col-4 mt-2">
                      <p>` + item.name + `</p>
-                     <p><b>Precio unitario: </b> `+ " " + item.currency + " " + item.unitCost +`</p>
+                     <p><b>Precio unitario: </b> `+ " " + item.currency + " " + `<span class="precio">` + item.unitCost +`</span></p>
                     </div>
                     <div class="col-2 mt-4">
                         <div class="row">
                           <label for="cant" class="float-right"> Cantidad:
-                          <input data-cost="`+ item.unitCost +`" type="number" min="1" onchange="contador();" value="`+ item.count +`" style="width:40px" class="cant-art sinfoco text-center border-top-0 border-left-0 border-right-0">
+                          <input type="number" min="1" onchange="contador();" value="`+ item.count +`" style="width:40px" class="cant-art sinfoco text-center border-top-0 border-left-0 border-right-0">
                           </label>
                         </div>
                     </div>
@@ -48,47 +46,61 @@ function mostrarCarrito(cartInfo){
                     `
          document.getElementById("cart").innerHTML=cartHTML;
     };
+  contador();
 };
 
 
-
 function contador(){
-
-  let inputCant = document.getElementsByClassName("cant-art");  // cantidad del articulo
-  //console.log(inputCant);
   
-  for (let elem of inputCant){
-
-    let cost = event.target.dataset.cost;  
-    let cant = event.target.value;
-    //console.log(event.target.value);
+  let spanPrecios = document.getElementsByClassName('precio'); //array de precio de cada articulo.
+  let inputCant = document.getElementsByClassName("cant-art"); //array de cantidad de cada articulo.
+  let spanSubtotales = document.getElementsByClassName('subtotal');//array de span con cada subtotal de articulo.
   
-    console.log(cost*cant);
-    let resultTotal = cost*cant;
-
-    let arraySpans = document.getElementsByClassName("subtotal");  // escribir los subtotales de cada art
-    for (let span of arraySpans) {
-     span.innerHTML= resultTotal;
-    };
+  let total=0;
+  
+  for (let i=0; i < spanPrecios.length; i++){
     
+    spanSubtotales[i].innerHTML = (parseFloat(spanPrecios[i].innerHTML) * parseFloat(inputCant[i].value)).toFixed(2);   
+    total += parseFloat(spanPrecios[i].innerHTML) * parseFloat(inputCant[i].value);
   };
+  document.getElementById('total').innerHTML = (total).toFixed(2);
+
 }
 
+function metEnv(){
+
+  let envio = document.getElementsByName("envio"); // array de radio button de los envios.
+  let total =  document.getElementById("total");
+  let costo = 0;
+
+  for (let i=0; i < envio.length; i++) { 
+      costo = parseFloat(envio[i].value) + parseFloat(total.innerHTML);
+    };
+    total.innerHTML = (costo).toFixed(2);
+};
 
 
+function pesOdol(){
+  let pesos = document.getElementById("pesos"); // btn
+  let dolares = document.getElementById("dolares"); // btn
+  let usd = 40;
+};
 
+function metPag(){
+ 
+};
 
-
-
-
-
-
-
-//en proceso xD
 function deleteart(){
   cartInfo.articles.splice(i,1);
   mostrarCarrito(cartInfo);
 }
+
+
+
+
+
+
+
 
 
 

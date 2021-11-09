@@ -68,40 +68,103 @@
     </div>
   </nav>
   <div class="container p-5">
-    <lottie-player src="https://assets3.lottiefiles.com/private_files/lf30_x2lzmtdl.json" background="transparent"  speed="1"  style="width: 150px; height: 150px; float:right; position:relative; padding-top: 32px;" loop autoplay></lottie-player>
+    <!--<lottie-player src="https://assets3.lottiefiles.com/private_files/lf30_x2lzmtdl.json" background="transparent"  speed="1"  style="width: 150px; height: 150px; float:right; position:relative; padding-top: 32px;" loop autoplay></lottie-player>-->
     <div class="text-center p-4">
       <h2 class="animate__animated animate__pulse">Carrito</h2>
     </div>
-    <p class="lead card-header mb-5 light-text bg-success">Detalle del pedido</p>
+    <div class="row lead mb-5 light-text bg-success pt-2">
+      <div class="col text-center">
+        <p class="d-inline-flex pt-1">Detalle del pedido</p>
+      </div>
+      <div class="col text-center">
+        <p class="d-inline-flex mt-1">Ver en</p>
+        <button id="pesos" class="btn btn-success" style="color:rgb(168, 247, 168); font-weight: bold;">UYU</button> 
+        <button id="dolares" class="btn btn-success" style="color:rgb(168, 247, 168); font-weight: bold;">U$D</button>
+      </div>
+    </div>
     <div id="cart" class="row border-bottom">
       <!---- carrito  ---->
     </div>
     <br>
     <div class="row mt-4 mb-5">
-      <div class="col-md-5">
+      <div class="col-md-5 envio">
         <p class="card-header lead mt-3 mb-5 light-text bg-secondary">Forma de envío </p>
-        <input id="envPremium" type="radio" name="envio" value="">
-        <label for="envPremium">Premium: (2-5 días) + 15%</label>
+        <label for="envPremium" class="mt-2 radioenvio">
+          <input id="envPremium" type="radio" name="envio" value=0.15 class="mr-1" checked> 
+          Premium: <b>2 a 5 días</b><small class="text-muted pl-1">+ 15%</small>
+        </label>
         <br>
-        <input id="envExpress" type="radio" name="envio" value="">
-        <label for="envExpress">Express: (5-8 días) + 7%</label>
+        <label for="envExpress" class="mt-2 radioenvio">
+          <input id="envExpress" type="radio" name="envio" value=0.07 class="mr-1">
+          Express: <b>5 a 8 días</b><small class="text-muted pl-1">+ 7%</small>
+        </label>
         <br>
-        <input id="envStandard" type="radio" name="envio" value="">
-        <label for="envStandard">Standard: (12-15 días) + 5%</label>
+        <label for="envStandard" class="mt-2 radioenvio">
+          <input id="envStandard" type="radio" name="envio" value=0.05 class="mr-1">
+          Standard: <b>12 a 15 días</b><small class="text-muted pl-1">+ 5%</small>
+        </label>
       </div>
-      <div class="col-md-6 border-left">
+      <div class="col-md-7 border-left">
         <p class="card-header lead mt-3 mb-5 light-text bg-secondary">Dirección de envío </p>
-        <label for="calle">Calle: <input id="calle" type="text" name="calle" value="" class=" mr-4 sinfoco border-top-0 border-left-0 border-right-0">
+        <label for="calle" class="text-secondary">Calle: 
+          <input id="calle" type="text" name="" value="" class="pl-2 sinfoco border-top-0 border-left-0 border-right-0"style="width: 28em;">
         </label>
-        <label for="numPuerta">Número de puerta: <input id="numPuerta" type="number" name="numPuerta" value="" style="width:70px" class="sinfoco border-top-0 border-left-0 border-right-0">
+        <label for="esquina" class="text-secondary">Esquina: 
+          <input id="esquina" type="text" name="" value="" class=" pl-2 mt-3 mr-3 sinfoco border-top-0 border-left-0 border-right-0">
         </label>
+        <label for="numPuerta" class="text-secondary">Número de puerta: 
+          <input id="numPuerta" type="number" name="" value="" style="width:70px" class="sinfoco mt-3 border-top-0 border-left-0 border-right-0">
+        </label>
+      </div>
+      <div class="col-md-12 text-center a">
+        <p class="card-header lead mt-5 mb-5 light-text bg-secondary">Selecciona tu 
+          <i class="arrow-moveD fa fa-arrow-alt-circle-right mt-3"></i>
+          <button type="button" data-toggle="modal" data-target="#modalPago" class="ml-3 mb-1 btn btn-secondary" onclick="metPag();">metodo de pago</button>
+        </p>
       </div>
     </div>
+    <!---------- MODAL  ------------>
+    <div class="modal fade" id="modalPago" aria-labelledby="modalLabel" aria-hidden="true" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalLabel">Metodo de pago</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body ml-5">
+            <label for="numTarj" class="text-info">Número de tarjeta 
+              <br>
+              <i class="fa fa-id-card"></i> 
+              <input type="text" id="numTarj" placeholder="**** **** **** ****" class="sinfoco border-info border-top-0 border-left-0 border-right-0">
+            </label>
+            <br><br>
+            <label for="vencTarj" class="text-info">Vencimiento
+              <br>
+              <i class="fa fa-calendar-alt"></i>
+              <input type="text" id="vencTarj" placeholder="MM  YY" class="sinfoco border-info border-top-0 border-left-0 border-right-0">
+            </label>
+            <br><br>
+            <label for="CVV" class="text-info">CVV
+              <br>
+              <i class="fa fa-lock"></i>
+              <input type="text" minlength="3" maxlength="3" id="CVV" style="width: 30%; padding-right: 2px;" placeholder="***" class="sinfoco border-info border-top-0 border-left-0 border-right-0">
+            </label>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-primary">Seleccionar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!------------- FIN MODAL  ----------->
     <div id="cost">
       <div class="importe">
-        <a href="products.html" class="float-left ml-5 btn btn-outline-light border-0">Volver a productos</a>
-          <span class="text-secondary text-uppercase text-dark">Total: </span>
-          <span class="monto" id="total"><!--monto total--></span>
+        <a href="products.html" class="float-left ml-3 btn btn-outline-light border-0">Volver a productos</a>
+        <span class="text-secondary text-uppercase text-dark mr-5">Total:</span>
+        <span class="monto" id="total"><!--monto total--></span>
         <button class="float-right mr-5 btn btn-outline-success">Pagar</button>
       </div> 
     </div>
