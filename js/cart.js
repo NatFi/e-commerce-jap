@@ -9,8 +9,6 @@ document.addEventListener("DOMContentLoaded", function(e){
       mostrarCarrito(cartInfo);
     }
   });
-
-  metEnv();
 });
 
 let cartInfo = {};
@@ -74,20 +72,17 @@ function metEnv(){
   let costo = 0;
 
   for (let i=0; i < envio.length; i++) { 
-      costo = parseFloat(envio[i].value) + parseFloat(total.innerHTML);
+     if (envio[i].checked){
+       total = envio[i].value * total;
+     }
     };
-    total.innerHTML = (costo).toFixed(2);
+  
 };
-
 
 function pesOdol(){
   let pesos = document.getElementById("pesos"); // btn
   let dolares = document.getElementById("dolares"); // btn
   let usd = 40;
-};
-
-function metPag(){
- 
 };
 
 function deleteart(){
