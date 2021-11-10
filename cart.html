@@ -90,17 +90,17 @@
       <div class="col-md-5 envio">
         <p class="card-header lead mt-3 mb-5 light-text bg-secondary">Forma de envío </p>
         <label for="envPremium" class="mt-2 radioenvio">
-          <input id="envPremium" type="radio" name="envio" value="15" class="mr-1" onclick="metEnv();">  <!--checked-->
+          <input id="envPremium" type="radio" name="envio" value="0.15" class="mr-1" onchange="cartCost();">
           Premium: <b>2 a 5 días</b><small class="text-muted pl-1">+ 15%</small>
         </label>
         <br>
         <label for="envExpress" class="mt-2 radioenvio">
-          <input id="envExpress" type="radio" name="envio" value="7" class="mr-1" onclick="metEnv();">
+          <input id="envExpress" type="radio" name="envio" value="0.07" class="mr-1" onchange="cartCost();">
           Express: <b>5 a 8 días</b><small class="text-muted pl-1">+ 7%</small>
         </label>
         <br>
         <label for="envStandard" class="mt-2 radioenvio">
-          <input id="envStandard" type="radio" name="envio" value="5" class="mr-1" onclick="metEnv();">
+          <input id="envStandard" type="radio" name="envio" value="0.05" class="mr-1" onchange="cartCost();">
           Standard: <b>12 a 15 días</b><small class="text-muted pl-1">+ 5%</small>
         </label>
       </div>

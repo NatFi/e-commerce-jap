@@ -9,6 +9,13 @@ document.addEventListener("DOMContentLoaded", function(e){
       mostrarCarrito(cartInfo);
     }
   });
+
+  /*for (let i=0;i<radioEnvio.length;i++){
+    radioEnvio[i].addEventListener("click",()=>{
+      cartCost();
+    });
+  };*/
+
 });
 
 let cartInfo = {};
@@ -31,7 +38,7 @@ function mostrarCarrito(cartInfo){
                     <div class="col-2 mt-4">
                         <div class="row">
                           <label for="cant" class="float-right"> Cantidad:
-                          <input type="number" min="1" onchange="contador();" value="`+ item.count +`" style="width:40px" class="cant-art sinfoco text-center border-top-0 border-left-0 border-right-0">
+                          <input type="number" min="1" onchange="cartCost();" value="`+ item.count +`" style="width:40px" class="cant-art sinfoco text-center border-top-0 border-left-0 border-right-0">
                           </label>
                         </div>
                     </div>
@@ -44,15 +51,16 @@ function mostrarCarrito(cartInfo){
                     `
          document.getElementById("cart").innerHTML=cartHTML;
     };
-  contador();
+  cartCost();
 };
 
 
-function contador(){
+function cartCost(){
   
   let spanPrecios = document.getElementsByClassName('precio'); //array de precio de cada articulo.
   let inputCant = document.getElementsByClassName("cant-art"); //array de cantidad de cada articulo.
   let spanSubtotales = document.getElementsByClassName('subtotal');//array de span con cada subtotal de articulo.
+  let radioEnvio = document.getElementsByName("envio"); // array de radio button de los envios.
   
   let total=0;
   
@@ -61,23 +69,15 @@ function contador(){
     spanSubtotales[i].innerHTML = (parseFloat(spanPrecios[i].innerHTML) * parseFloat(inputCant[i].value)).toFixed(2);   
     total += parseFloat(spanPrecios[i].innerHTML) * parseFloat(inputCant[i].value);
   };
-  document.getElementById('total').innerHTML = (total).toFixed(2);
+  
+  for (let i=0; i < radioEnvio.length; i++){
+    if(radioEnvio[i].checked){
+      total += total * parseFloat(radioEnvio[i].value);
+    }
+  }
+  document.getElementById("total").innerHTML = (total).toFixed(2);
 
 }
-
-function metEnv(){
-
-  let envio = document.getElementsByName("envio"); // array de radio button de los envios.
-  let total =  document.getElementById("total");
-  let costo = 0;
-
-  for (let i=0; i < envio.length; i++) { 
-     if (envio[i].checked){
-       total = envio[i].value * total;
-     }
-    };
-  
-};
 
 function pesOdol(){
   let pesos = document.getElementById("pesos"); // btn
@@ -85,10 +85,14 @@ function pesOdol(){
   let usd = 40;
 };
 
+
 function deleteart(){
   cartInfo.articles.splice(i,1);
   mostrarCarrito(cartInfo);
 }
+
+
+
 
 
 
