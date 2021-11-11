@@ -78,7 +78,7 @@
       </div>
       <div class="col text-center">
         <p class="d-inline-flex mt-1">Ver en</p>
-        <button id="pesos" class="btn btn-success" style="color:rgb(168, 247, 168); font-weight: bold;">UYU</button> 
+        <button id="pesos" class="btn btn-success" style="color:rgb(168, 247, 168); font-weight: bold;" onclick="pesOdol();">UYU</button> 
         <button id="dolares" class="btn btn-success" style="color:rgb(168, 247, 168); font-weight: bold;">U$D</button>
       </div>
     </div>
@@ -140,7 +140,7 @@
             </button>
           </div>
           <div class="modal-body ml-5">
-            <label for=""><input type="radio" name="" id="ctaBancRadio">Cuenta bancaria</label>
+           <!----><label for=""><input type="radio" name="pago" id="ctaBancRadio" value="Cuenta bancaria">Cuenta bancaria</label>
             <br>
             <label for="cta-banc" class="text-info">Número de cuenta <br> 
               <input id="cta-banc" type="text" placeholder="************" class="sinfoco border-info border-top-0 border-left-0 border-right-0">
@@ -148,7 +148,7 @@
 
             <br><br>
             
-            <label for=""><input type="radio" name="" id="tarjRadio">Tarjeta</label><br>
+           <!----><label for=""><input type="radio" name="pago" id="tarjRadio" value="Tarjeta">Tarjeta</label><br>
 
             <label for="numTarj" class="text-info">Número de tarjeta<br>
               <i class="fa fa-credit-card"></i> 

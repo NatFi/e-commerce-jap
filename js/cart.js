@@ -10,21 +10,35 @@ document.addEventListener("DOMContentLoaded", function(e){
     }
   });
 
+
   /*for (let i=0;i<radioEnvio.length;i++){
     radioEnvio[i].addEventListener("click",()=>{
       cartCost();
     });
   };*/
 
-  document.getElementById("tarjRadio").addEventListener("change",function(){
+  document.getElementById("tarjRadio").addEventListener("click",function(){
+    
     document.getElementById("numTarj").disabled = false;
     document.getElementById("vencTarj").disabled = false;
     document.getElementById("CVV").disabled = false;
 
-    document.getElementById("ctaBancRadio").disabled = true;
+    document.getElementById("cta-banc").disabled = true;
 
-    document.getElementById("metPago").innerHTML = Tarjeta;
+    document.getElementById("metPago").innerHTML = "Tarjeta";
   });
+
+
+  document.getElementById("ctaBancRadio").addEventListener("click",function(){
+    
+    document.getElementById("numTarj").disabled = true;
+    document.getElementById("vencTarj").disabled = true;
+    document.getElementById("CVV").disabled = true;
+
+    document.getElementById("cta-banc").disabled = false;
+
+    document.getElementById("metPago").innerHTML = "Cuenta bancaria";
+  })
 
 });
 
@@ -36,6 +50,7 @@ function mostrarCarrito(cartInfo){
 
     for(let i=0; i < cartInfo.articles.length; i++){
        let item = cartInfo.articles[i];
+       console.log(item);
 
         cartHTML += `
                     <div class="col-2 d-block mb-4 h-100">
@@ -56,12 +71,13 @@ function mostrarCarrito(cartInfo){
                       <p> <b>Subtotal:</b> `+ " " + item.currency + " " +`<span class="subtotal"> `+ item.unitCost * item.count + `</span></p>
                     </div>
                     <div class="col-1 mt-4">
-                      <button title="Eliminar artículo" onclick="deleteart();" class="btn border-0 btn-outline-danger"><i class="fa fa-trash-alt light"></i></button>
+                      <button title="Eliminar artículo" onclick="deleteart(${i});" class="btn border-0 btn-outline-danger"><i class="fa fa-trash-alt light"></i></button>
                     </div>
                     `
-         document.getElementById("cart").innerHTML=cartHTML;
+
     };
-  cartCost();
+    document.getElementById("cart").innerHTML=cartHTML;
+    cartCost();
 };
 
 
@@ -80,6 +96,9 @@ function cartCost(){
     total += parseFloat(spanPrecios[i].innerHTML) * parseFloat(inputCant[i].value);
     subtotalProducts.innerHTML = total;
   };
+  if(spanPrecios.length === 0){
+    subtotalProducts.innerHTML = 0;
+  }
 
   let costEnvio = 0;
 
@@ -93,14 +112,17 @@ function cartCost(){
 
 }
 
+
+
 function pesOdol(){
-  let pesos = document.getElementById("pesos"); // btn
-  let dolares = document.getElementById("dolares"); // btn
-  let usd = 40;
+ let pesos = document.getElementById("pesos"); // btn
+ let dolares = document.getElementById("dolares"); // btn
+ let usd = 40;
+
 };
 
 
-function deleteart(){
+function deleteart(i){
   cartInfo.articles.splice(i,1);
   mostrarCarrito(cartInfo);
 }
