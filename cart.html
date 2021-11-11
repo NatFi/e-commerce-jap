@@ -85,22 +85,23 @@
     <div id="cart" class="row border-bottom">
       <!---- carrito  ---->
     </div>
+    <span class="float-right"><b>Subtotal de productos: </b> <span id="subt"></span></span>
     <br>
-    <div class="row mt-4 mb-5">
+    <div class="row mt-1 mb-5">
       <div class="col-md-5 envio">
-        <p class="card-header lead mt-3 mb-5 light-text bg-secondary">Forma de envío </p>
+        <p class="card-header lead mt-3 mb-5 light-text bg-secondary">Forma de envío <small id="costEnv" class="pl-5"></small></p>
         <label for="envPremium" class="mt-2 radioenvio">
-          <input id="envPremium" type="radio" name="envio" value="0.15" class="mr-1" onchange="cartCost();">
+          <input id="envPremium" type="radio" name="envio" value="15" class="mr-1" onchange="cartCost();">
           Premium: <b>2 a 5 días</b><small class="text-muted pl-1">+ 15%</small>
         </label>
         <br>
         <label for="envExpress" class="mt-2 radioenvio">
-          <input id="envExpress" type="radio" name="envio" value="0.07" class="mr-1" onchange="cartCost();">
+          <input id="envExpress" type="radio" name="envio" value="7" class="mr-1" onchange="cartCost();">
           Express: <b>5 a 8 días</b><small class="text-muted pl-1">+ 7%</small>
         </label>
         <br>
         <label for="envStandard" class="mt-2 radioenvio">
-          <input id="envStandard" type="radio" name="envio" value="0.05" class="mr-1" onchange="cartCost();">
+          <input id="envStandard" type="radio" name="envio" value="5" class="mr-1" onchange="cartCost();">
           Standard: <b>12 a 15 días</b><small class="text-muted pl-1">+ 5%</small>
         </label>
       </div>
@@ -139,20 +140,31 @@
             </button>
           </div>
           <div class="modal-body ml-5">
-            <label for="numTarj" class="text-info">Número de tarjeta 
-              <br>
-              <i class="fa fa-id-card"></i> 
+            <label for=""><input type="radio" name="" id="ctaBancRadio">Cuenta bancaria</label>
+            <br>
+            <label for="cta-banc" class="text-info">Número de cuenta <br> 
+              <input id="cta-banc" type="text" placeholder="************" class="sinfoco border-info border-top-0 border-left-0 border-right-0">
+            </label>
+
+            <br><br>
+            
+            <label for=""><input type="radio" name="" id="tarjRadio">Tarjeta</label><br>
+
+            <label for="numTarj" class="text-info">Número de tarjeta<br>
+              <i class="fa fa-credit-card"></i> 
               <input type="text" id="numTarj" placeholder="**** **** **** ****" class="sinfoco border-info border-top-0 border-left-0 border-right-0">
             </label>
+
             <br><br>
-            <label for="vencTarj" class="text-info">Vencimiento
-              <br>
+
+            <label for="vencTarj" class="text-info">Vencimiento<br>
               <i class="fa fa-calendar-alt"></i>
               <input type="text" id="vencTarj" placeholder="MM  YY" class="sinfoco border-info border-top-0 border-left-0 border-right-0">
             </label>
+
             <br><br>
-            <label for="CVV" class="text-info">CVV
-              <br>
+
+            <label for="CVV" class="text-info">CV <br>
               <i class="fa fa-lock"></i>
               <input type="text" minlength="3" maxlength="3" id="CVV" style="width: 30%; padding-right: 2px;" placeholder="***" class="sinfoco border-info border-top-0 border-left-0 border-right-0">
             </label>

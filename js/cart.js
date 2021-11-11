@@ -16,6 +16,16 @@ document.addEventListener("DOMContentLoaded", function(e){
     });
   };*/
 
+  document.getElementById("tarjRadio").addEventListener("change",function(){
+    document.getElementById("numTarj").disabled = false;
+    document.getElementById("vencTarj").disabled = false;
+    document.getElementById("CVV").disabled = false;
+
+    document.getElementById("ctaBancRadio").disabled = true;
+
+    document.getElementById("metPago").innerHTML = Tarjeta;
+  });
+
 });
 
 let cartInfo = {};
@@ -60,22 +70,26 @@ function cartCost(){
   let spanPrecios = document.getElementsByClassName('precio'); //array de precio de cada articulo.
   let inputCant = document.getElementsByClassName("cant-art"); //array de cantidad de cada articulo.
   let spanSubtotales = document.getElementsByClassName('subtotal');//array de span con cada subtotal de articulo.
+  let subtotalProducts = document.getElementById("subt"); //subtotal
   let radioEnvio = document.getElementsByName("envio"); // array de radio button de los envios.
   
   let total=0;
   
   for (let i=0; i < spanPrecios.length; i++){
-    
-    spanSubtotales[i].innerHTML = (parseFloat(spanPrecios[i].innerHTML) * parseFloat(inputCant[i].value)).toFixed(2);   
+    spanSubtotales[i].innerHTML = (parseFloat(spanPrecios[i].innerHTML) * parseFloat(inputCant[i].value)).toFixed(2); 
     total += parseFloat(spanPrecios[i].innerHTML) * parseFloat(inputCant[i].value);
+    subtotalProducts.innerHTML = total;
   };
-  
+
+  let costEnvio = 0;
+
   for (let i=0; i < radioEnvio.length; i++){
     if(radioEnvio[i].checked){
-      total += total * parseFloat(radioEnvio[i].value);
+      costEnvio += ((parseFloat(radioEnvio[i].value) / 100) * total);
+      document.getElementById("costEnv").innerHTML = "Costo"+" "+" "+ (costEnvio).toFixed(2);
     }
   }
-  document.getElementById("total").innerHTML = (total).toFixed(2);
+  document.getElementById("total").innerHTML = (total + costEnvio).toFixed(2);
 
 }
 
