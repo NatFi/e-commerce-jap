@@ -10,13 +10,12 @@ document.addEventListener("DOMContentLoaded", function(e){
     }
   });
 
-
   /*for (let i=0;i<radioEnvio.length;i++){
     radioEnvio[i].addEventListener("click",()=>{
       cartCost();
     });
   };*/
-
+  //-------------------------------------------------------------------------
   document.getElementById("tarjRadio").addEventListener("click",function(){
     
     document.getElementById("numTarj").disabled = false;
@@ -38,9 +37,11 @@ document.addEventListener("DOMContentLoaded", function(e){
     document.getElementById("cta-banc").disabled = false;
 
     document.getElementById("metPago").innerHTML = "Cuenta bancaria";
-  })
+  });
+  //-------------------------------------------------------------------------
 
 });
+
 
 let cartInfo = {};
 
@@ -49,8 +50,19 @@ function mostrarCarrito(cartInfo){
     let cartHTML = "";
 
     for(let i=0; i < cartInfo.articles.length; i++){
-       let item = cartInfo.articles[i];
-       console.log(item);
+      let item = cartInfo.articles[i];
+
+     /* document.getElementById("pesos").addEventListener("click",()=>{
+        if(item.currency === "USD"){
+          item.currency = "UYU";
+          item.unitCost = parseFloat(item.unitCost * 40);
+        };
+      });*/
+
+      if(item.currency === "UYU"){
+        item.currency = "USD";
+        item.unitCost = parseFloat(item.unitCost / 40);
+      };
 
         cartHTML += `
                     <div class="col-2 d-block mb-4 h-100">
@@ -58,23 +70,22 @@ function mostrarCarrito(cartInfo){
                     </div>
                     <div class="col-4 mt-2">
                      <p>` + item.name + `</p>
-                     <p><b>Precio unitario: </b> `+ " " + item.currency + " " + `<span class="precio">` + item.unitCost +`</span></p>
+                     <p><b>Precio unitario: </b> `+ " " + item.currency + " " + `<span class="precio">`+ item.unitCost +`</span> </p>
                     </div>
                     <div class="col-2 mt-4">
                         <div class="row">
                           <label for="cant" class="float-right"> Cantidad:
-                          <input type="number" min="1" onchange="cartCost();" value="`+ item.count +`" style="width:40px" class="cant-art sinfoco text-center border-top-0 border-left-0 border-right-0">
+                          <input type="number" min="1" onchange="cartCost();" value="`+ item.count +`" class="cant-art sinfoco text-center border-top-0 border-left-0 border-right-0" style="width:40px">
                           </label>
                         </div>
                     </div>
                     <div class="col-3 mt-4">
-                      <p> <b>Subtotal:</b> `+ " " + item.currency + " " +`<span class="subtotal"> `+ item.unitCost * item.count + `</span></p>
+                      <p> <b>Subtotal:</b>` + " " + item.currency + " " + `<span class="subtotal">`+ item.unitCost * item.count +`</span> </p>
                     </div>
                     <div class="col-1 mt-4">
                       <button title="Eliminar artículo" onclick="deleteart(${i});" class="btn border-0 btn-outline-danger"><i class="fa fa-trash-alt light"></i></button>
                     </div>
                     `
-
     };
     document.getElementById("cart").innerHTML=cartHTML;
     cartCost();
@@ -86,7 +97,6 @@ function cartCost(){
   let spanPrecios = document.getElementsByClassName('precio'); //array de precio de cada articulo.
   let inputCant = document.getElementsByClassName("cant-art"); //array de cantidad de cada articulo.
   let spanSubtotales = document.getElementsByClassName('subtotal');//array de span con cada subtotal de articulo.
-  let subtotalProducts = document.getElementById("subt"); //subtotal
   let radioEnvio = document.getElementsByName("envio"); // array de radio button de los envios.
   
   let total=0;
@@ -94,11 +104,11 @@ function cartCost(){
   for (let i=0; i < spanPrecios.length; i++){
     spanSubtotales[i].innerHTML = (parseFloat(spanPrecios[i].innerHTML) * parseFloat(inputCant[i].value)).toFixed(2); 
     total += parseFloat(spanPrecios[i].innerHTML) * parseFloat(inputCant[i].value);
-    subtotalProducts.innerHTML = total;
+   // document.getElementById("subt").innerHTML = (total).toFixed(2);
   };
-  if(spanPrecios.length === 0){
-    subtotalProducts.innerHTML = 0;
-  }
+  /* if(spanPrecios.length === 0){
+    document.getElementById("subt").innerHTML = 0;
+  } */
 
   let costEnvio = 0;
 
@@ -106,26 +116,17 @@ function cartCost(){
     if(radioEnvio[i].checked){
       costEnvio += ((parseFloat(radioEnvio[i].value) / 100) * total);
       document.getElementById("costEnv").innerHTML = "Costo"+" "+" "+ (costEnvio).toFixed(2);
-    }
-  }
+    };
+  };
   document.getElementById("total").innerHTML = (total + costEnvio).toFixed(2);
-
-}
-
-
-
-function pesOdol(){
- let pesos = document.getElementById("pesos"); // btn
- let dolares = document.getElementById("dolares"); // btn
- let usd = 40;
-
+  document.getElementById("subt").innerHTML = (total).toFixed(2);
 };
 
 
 function deleteart(i){
   cartInfo.articles.splice(i,1);
   mostrarCarrito(cartInfo);
-}
+};
 
 
 

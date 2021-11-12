@@ -78,7 +78,7 @@
       </div>
       <div class="col text-center">
         <p class="d-inline-flex mt-1">Ver en</p>
-        <button id="pesos" class="btn btn-success" style="color:rgb(168, 247, 168); font-weight: bold;" onclick="pesOdol();">UYU</button> 
+        <button id="pesos" class="btn btn-success" style="color:rgb(168, 247, 168); font-weight: bold;">UYU</button> 
         <button id="dolares" class="btn btn-success" style="color:rgb(168, 247, 168); font-weight: bold;">U$D</button>
       </div>
     </div>
@@ -140,34 +140,31 @@
             </button>
           </div>
           <div class="modal-body ml-5">
-           <!----><label for=""><input type="radio" name="pago" id="ctaBancRadio" value="Cuenta bancaria">Cuenta bancaria</label>
-            <br>
-            <label for="cta-banc" class="text-info">Número de cuenta <br> 
-              <input id="cta-banc" type="text" placeholder="************" class="sinfoco border-info border-top-0 border-left-0 border-right-0">
-            </label>
+            <form class="was-validated">
 
-            <br><br>
-            
-           <!----><label for=""><input type="radio" name="pago" id="tarjRadio" value="Tarjeta">Tarjeta</label><br>
+              <!----><label for="ctaBancRadio" class="text-info"><input type="radio" name="pago" id="ctaBancRadio" value="" class="mr-1">Cuenta bancaria</label><br>
+              <label for="cta-banc" class="form-label">Número de cuenta <br> 
+                <input id="cta-banc" type="text" placeholder="************" class="form-control sinfoco border-info border-top-0 border-left-0 border-right-0">
+              </label>
+              <br><br>
 
-            <label for="numTarj" class="text-info">Número de tarjeta<br>
-              <i class="fa fa-credit-card"></i> 
-              <input type="text" id="numTarj" placeholder="**** **** **** ****" class="sinfoco border-info border-top-0 border-left-0 border-right-0">
-            </label>
+              <!----><label for="tarjRadio" class="text-info"><input type="radio" name="pago" id="tarjRadio" value="" class="mr-1">Tarjeta</label><br>
+              <label for="numTarj" class="form-label">Número de tarjeta<br>
+                <i class="fa fa-credit-card"></i>
+                <input type="text" id="numTarj" placeholder="**** **** **** ****" class="form-control sinfoco border-info border-top-0 border-left-0 border-right-0">
+              </label>
+              <br><br>
+              <label for="vencTarj" class="form-label">Vencimiento<br>
+                <i class="fa fa-calendar-alt"></i>
+                <input type="text" id="vencTarj" placeholder="MM  YY" class="form-control sinfoco border-info border-top-0 border-left-0 border-right-0">
+              </label>
+              <br><br>
+              <label for="CVV" class="form-label">CVV<br>
+                <i class="fa fa-lock"></i>
+                <input type="text" minlength="3" maxlength="3" id="CVV" style="width: 30%; padding-right: 2px;" placeholder="***" class="form-control sinfoco border-info border-top-0 border-left-0 border-right-0">
+              </label>
 
-            <br><br>
-
-            <label for="vencTarj" class="text-info">Vencimiento<br>
-              <i class="fa fa-calendar-alt"></i>
-              <input type="text" id="vencTarj" placeholder="MM  YY" class="sinfoco border-info border-top-0 border-left-0 border-right-0">
-            </label>
-
-            <br><br>
-
-            <label for="CVV" class="text-info">CV <br>
-              <i class="fa fa-lock"></i>
-              <input type="text" minlength="3" maxlength="3" id="CVV" style="width: 30%; padding-right: 2px;" placeholder="***" class="sinfoco border-info border-top-0 border-left-0 border-right-0">
-            </label>
+            </form>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
