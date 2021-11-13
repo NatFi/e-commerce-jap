@@ -7,7 +7,11 @@ document.addEventListener("DOMContentLoaded", function(e){
     if(resultObj.status === "ok"){
       cartInfo = resultObj.data;
       mostrarCarrito(cartInfo);
-    }
+    };
+  });
+
+  document.getElementById("confirmarCompra").addEventListener("click", ()=>{
+    finalizarCompra();
   });
 
   /*for (let i=0;i<radioEnvio.length;i++){
@@ -15,32 +19,37 @@ document.addEventListener("DOMContentLoaded", function(e){
       cartCost();
     });
   };*/
-  //-------------------------------------------------------------------------
-  document.getElementById("tarjRadio").addEventListener("click",function(){
-    
-    document.getElementById("numTarj").disabled = false;
-    document.getElementById("vencTarj").disabled = false;
-    document.getElementById("CVV").disabled = false;
 
+
+  //---------------------------TARJETA HABILITADA---------------------------------
+  document.getElementById("tarjRadio").addEventListener("click",function(){
+
+    let tarjDatos = document.getElementsByName("tarj");
+    for(let i=0; i < tarjDatos.length; i++){
+      tarjDatos[i].disabled = false;
+    };
     document.getElementById("cta-banc").disabled = true;
 
-    document.getElementById("metPago").innerHTML = "Tarjeta";
+    document.getElementById("metPago").innerHTML = "a pagar con TARJETA";
+    document.getElementById("form").classList.add("was-validated");
   });
 
 
+  //--------------------------CTA BANCARIA HABILITADA-----------------------------
   document.getElementById("ctaBancRadio").addEventListener("click",function(){
     
-    document.getElementById("numTarj").disabled = true;
-    document.getElementById("vencTarj").disabled = true;
-    document.getElementById("CVV").disabled = true;
-
+    let tarjDatos = document.getElementsByName("tarj");
+    for(let i=0; i < tarjDatos.length; i++){
+      tarjDatos[i].disabled = true;
+    };
     document.getElementById("cta-banc").disabled = false;
 
-    document.getElementById("metPago").innerHTML = "Cuenta bancaria";
+    document.getElementById("metPago").innerHTML = "a pagar con CUENTA BANCARIA";
+    document.getElementById("form").classList.add("was-validated");
   });
-  //-------------------------------------------------------------------------
-
+  
 });
+
 
 
 let cartInfo = {};
@@ -52,12 +61,14 @@ function mostrarCarrito(cartInfo){
     for(let i=0; i < cartInfo.articles.length; i++){
       let item = cartInfo.articles[i];
 
-     /* document.getElementById("pesos").addEventListener("click",()=>{
+      /* 
+      document.getElementById("pesos").addEventListener("click",()=>{
         if(item.currency === "USD"){
           item.currency = "UYU";
           item.unitCost = parseFloat(item.unitCost * 40);
         };
-      });*/
+      });
+      */
 
       if(item.currency === "UYU"){
         item.currency = "USD";
@@ -106,9 +117,12 @@ function cartCost(){
     total += parseFloat(spanPrecios[i].innerHTML) * parseFloat(inputCant[i].value);
    // document.getElementById("subt").innerHTML = (total).toFixed(2);
   };
-  /* if(spanPrecios.length === 0){
+
+  /* 
+  if(spanPrecios.length === 0){
     document.getElementById("subt").innerHTML = 0;
-  } */
+  }
+  */
 
   let costEnvio = 0;
 
@@ -118,8 +132,9 @@ function cartCost(){
       document.getElementById("costEnv").innerHTML = "Costo"+" "+" "+ (costEnvio).toFixed(2);
     };
   };
+
   document.getElementById("total").innerHTML = (total + costEnvio).toFixed(2);
-  document.getElementById("subt").innerHTML = (total).toFixed(2);
+  document.getElementById("subt").innerHTML =  (total).toFixed(2);
 };
 
 
@@ -129,10 +144,39 @@ function deleteart(i){
 };
 
 
+function finalizarCompra(){
+
+  const Toast = Swal.mixin({
+    toast: true,
+    position: 'bottom-end',
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.addEventListener('mouseenter', Swal.stopTimer)
+      toast.addEventListener('mouseleave', Swal.resumeTimer)
+    }
+  });
+
+  Toast.fire({
+    icon: 'success',
+    title: '¡Compra realizada con éxito!'
+  });
+};
 
 
 
 
+
+
+
+
+
+
+
+let cuenta = false;
+let tarj = false ;
+let modal = false;
 
 
 

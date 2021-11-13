@@ -87,41 +87,48 @@
     </div>
     <span class="float-right"><b>Subtotal de productos: </b> <span id="subt"></span></span>
     <br>
+    <!----------------- RADIOS ENVIOS --------------------->
     <div class="row mt-1 mb-5">
       <div class="col-md-5 envio">
         <p class="card-header lead mt-3 mb-5 light-text bg-secondary">Forma de envío <small id="costEnv" class="pl-5"></small></p>
-        <label for="envPremium" class="mt-2 radioenvio">
-          <input id="envPremium" type="radio" name="envio" value="15" class="mr-1" onchange="cartCost();">
-          Premium: <b>2 a 5 días</b><small class="text-muted pl-1">+ 15%</small>
-        </label>
-        <br>
-        <label for="envExpress" class="mt-2 radioenvio">
-          <input id="envExpress" type="radio" name="envio" value="7" class="mr-1" onchange="cartCost();">
-          Express: <b>5 a 8 días</b><small class="text-muted pl-1">+ 7%</small>
-        </label>
-        <br>
-        <label for="envStandard" class="mt-2 radioenvio">
-          <input id="envStandard" type="radio" name="envio" value="5" class="mr-1" onchange="cartCost();">
-          Standard: <b>12 a 15 días</b><small class="text-muted pl-1">+ 5%</small>
-        </label>
+        <form class="was-validated ml-5">
+          <label for="envPremium" class="mt-2 radioenvio">
+            <input id="envPremium" type="radio" name="envio" value="15" class="mr-1" onchange="cartCost();" required>
+            Premium: <b>2 a 5 días</b><small class="text-muted pl-1">+ 15%</small>
+          </label>
+          <br>
+          <label for="envExpress" class="mt-2 radioenvio">
+            <input id="envExpress" type="radio" name="envio" value="7" class="mr-1" onchange="cartCost();" required>
+            Express: <b>5 a 8 días</b><small class="text-muted pl-1">+ 7%</small>
+          </label>
+          <br>
+          <label for="envStandard" class="mt-2 radioenvio">
+            <input id="envStandard" type="radio" name="envio" value="5" class="mr-1" onchange="cartCost();" required>
+            Standard: <b>12 a 15 días</b><small class="text-muted pl-1">+ 5%</small>
+          </label>
+        </form>
       </div>
+      <!-------------------- DIRECCIÓN ENVIO  -------------------------->
       <div class="col-md-7 border-left">
         <p class="card-header lead mt-3 mb-4 light-text bg-secondary">Dirección de envío </p>
-        <select id="localidad" name="" class="form-control mb-4 text-center">
-          <option value="">Selecciona tu localidad</option> 
-          <option value="">Montevideo</option>
-          <option value="">Argentina</option>
-        </select>
-        <label for="calle" class="text-secondary">Calle: 
-          <input id="calle" type="text" name="" value="" class="pl-2 sinfoco border-top-0 border-left-0 border-right-0"style="width: 28em;">
-        </label>
-        <label for="esquina" class="text-secondary">Esquina: 
-          <input id="esquina" type="text" name="" value="" class=" pl-2 mt-3 mr-3 sinfoco border-top-0 border-left-0 border-right-0">
-        </label>
-        <label for="numPuerta" class="text-secondary">Número de puerta: 
-          <input id="numPuerta" type="number" name="" value="" style="width:70px" class="sinfoco mt-3 border-top-0 border-left-0 border-right-0">
-        </label>
+        <form class="was-validated">
+         <select id="localidad" class="custom-select mb-4 text-center" required>
+            <option value="">Selecciona tu localidad</option> 
+            <option value="">Montevideo</option>
+            <option value="">Argentina</option>
+          </select>
+          <label for="calle" class="text-secondary">Calle: 
+            <input id="calle" name="direcc"  type="text" class="form-control pl-2 sinfoco border-top-0 border-left-0 border-right-0" required>
+          </label>
+          <label for="esquina" class="text-secondary">Esquina: 
+            <input id="esquina" name="direcc" type="text" class="form-control pl-2 sinfoco border-top-0 border-left-0 border-right-0" required>
+          </label>
+          <label for="numPuerta" class="text-secondary">Número de puerta: 
+            <input id="numPuerta" name="direcc" type="number" class="form-control pl-2 sinfoco border-top-0 border-left-0 border-right-0" required>
+          </label>
+        </form>
       </div>
+      <!---------------------------->
       <div class="col-md-12 text-center a">
         <p class="card-header lead mt-5 mb-5 light-text bg-secondary">Selecciona tu 
           <i class="arrow-moveD fa fa-arrow-alt-circle-right mt-3"></i>
@@ -140,35 +147,52 @@
             </button>
           </div>
           <div class="modal-body ml-5">
-            <form class="was-validated">
 
-              <!----><label for="ctaBancRadio" class="text-info"><input type="radio" name="pago" id="ctaBancRadio" value="" class="mr-1">Cuenta bancaria</label><br>
-              <label for="cta-banc" class="form-label">Número de cuenta <br> 
-                <input id="cta-banc" type="text" placeholder="************" class="form-control sinfoco border-info border-top-0 border-left-0 border-right-0">
+            <form id="form">
+              <!--TARJETA-->
+              <label for="tarjRadio" class="text-info">
+                <input type="radio" name="pago" id="tarjRadio" class="mr-1">Tarjeta
+              </label>
+              <br>
+              <label for="numTarj" class="form-label"><i class="fa fa-credit-card mr-2"></i>Número de tarjeta<br>
+                <input type="text" id="numTarj" placeholder="**** **** **** ****" name="tarj" class="form-control sinfoco border-info border-top-0 border-left-0 border-right-0" required>
+                <div class="invalid-feedback">
+                  Porfavor, ingrese su numero de tarjeta.
+                </div>
+              </label>
+              <br><br>
+              <label for="vencTarj" class="form-label"><i class="fa fa-calendar-alt mr-2"></i>Vencimiento<br>
+                <input type="month" id="vencTarj" placeholder="MM  YY" name="tarj" class="form-control sinfoco border-info border-top-0 border-left-0 border-right-0" required>
+                <div class="invalid-feedback">
+                  Porfavor, ingrese la fecha de vencimiento de su tarjeta.
+                </div>
+              </label>
+              <br><br>
+              <label for="CVV" class="form-label"><i class="fa fa-lock mr-2"></i>CVV<br>
+                <input type="text" minlength="3" maxlength="3" id="CVV" placeholder="***"name="tarj" class="form-control sinfoco border-info border-top-0 border-left-0 border-right-0" style="width: 30%; padding-right: 2px;" required>
+                <div class="invalid-feedback">
+                  Porfavor, ingrese el código de seguridad al dorso de su tarjeta.
+                </div>
               </label>
               <br><br>
 
-              <!----><label for="tarjRadio" class="text-info"><input type="radio" name="pago" id="tarjRadio" value="" class="mr-1">Tarjeta</label><br>
-              <label for="numTarj" class="form-label">Número de tarjeta<br>
-                <i class="fa fa-credit-card"></i>
-                <input type="text" id="numTarj" placeholder="**** **** **** ****" class="form-control sinfoco border-info border-top-0 border-left-0 border-right-0">
+              <!--CUENTA BANCARIA-->
+              <label for="ctaBancRadio" class="text-info">
+                <input type="radio" name="pago" id="ctaBancRadio" class="mr-1">Cuenta bancaria
               </label>
-              <br><br>
-              <label for="vencTarj" class="form-label">Vencimiento<br>
-                <i class="fa fa-calendar-alt"></i>
-                <input type="text" id="vencTarj" placeholder="MM  YY" class="form-control sinfoco border-info border-top-0 border-left-0 border-right-0">
+              <br>
+              <label for="cta-banc" class="form-label"><i class="fa fa-piggy-bank mr-2"></i>Número de cuenta <br> 
+                <input id="cta-banc" type="text" placeholder="************" class="form-control sinfoco border-info border-top-0 border-left-0 border-right-0" required>
+                <div class="invalid-feedback">
+                  Porfavor, ingrese su numero de cuenta.
+                </div>
               </label>
-              <br><br>
-              <label for="CVV" class="form-label">CVV<br>
-                <i class="fa fa-lock"></i>
-                <input type="text" minlength="3" maxlength="3" id="CVV" style="width: 30%; padding-right: 2px;" placeholder="***" class="form-control sinfoco border-info border-top-0 border-left-0 border-right-0">
-              </label>
-
             </form>
+
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-            <button type="button" class="btn btn-primary">Seleccionar</button>
+            <button type="submit" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-check"></i></button>
           </div>
         </div>
       </div>
@@ -177,9 +201,10 @@
     <div id="cost">
       <div class="importe">
         <a href="products.html" class="float-left ml-3 btn btn-outline-light border-0">Volver a productos</a>
-        <span class="text-secondary text-uppercase text-dark mr-5">Total:</span>
-        <span class="monto" id="total"><!--monto total--></span>
-        <button class="float-right mr-5 btn btn-outline-success">Pagar</button>
+        <span class="text-secondary text-uppercase text-dark mr-3">Total:</span>
+        <span class="monto mr-3" id="total"><!--monto total--></span>
+        <span id="metPago"></span>
+        <button class="float-right mr-5 btn btn-outline-success" id="confirmarCompra">Confirmar compra</button>
       </div> 
     </div>
   </div>
