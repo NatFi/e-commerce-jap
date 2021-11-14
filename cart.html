@@ -85,13 +85,13 @@
     <div id="cart" class="row border-bottom">
       <!---- carrito  ---->
     </div>
-    <span class="float-right"><b>Subtotal de productos: </b> <span id="subt"></span></span>
+    <p class="card-footer light-text bg-success text-right"><b>Subtotal de productos:</b><span id="subt" class="ml-3 pr-5"></span></p>
     <br>
     <!----------------- RADIOS ENVIOS --------------------->
     <div class="row mt-1 mb-5">
       <div class="col-md-5 envio">
-        <p class="card-header lead mt-3 mb-5 light-text bg-secondary">Forma de envío <small id="costEnv" class="pl-5"></small></p>
-        <form class="was-validated ml-5">
+        <p class="card-header lead mt-3 mb-5 light-text bg-secondary">Forma de envío <small id="costEnv" class="pl-4 text-right">Seleccionar<i class="fa fa-arrow-alt-circle-down ml-1"></i></small></p>
+<!----> <form class="was-validated ml-5">
           <label for="envPremium" class="mt-2 radioenvio">
             <input id="envPremium" type="radio" name="envio" value="15" class="mr-1" onchange="cartCost();" required>
             Premium: <b>2 a 5 días</b><small class="text-muted pl-1">+ 15%</small>
@@ -111,7 +111,7 @@
       <!-------------------- DIRECCIÓN ENVIO  -------------------------->
       <div class="col-md-7 border-left">
         <p class="card-header lead mt-3 mb-4 light-text bg-secondary">Dirección de envío </p>
-        <form class="was-validated">
+<!----> <form class="was-validated">
          <select id="localidad" class="custom-select mb-4 text-center" required>
             <option value="">Selecciona tu localidad</option> 
             <option value="">Montevideo</option>
@@ -129,7 +129,7 @@
         </form>
       </div>
       <!---------------------------->
-      <div class="col-md-12 text-center a">
+      <div class="col-md-12 text-center a border">
         <p class="card-header lead mt-5 mb-5 light-text bg-secondary">Selecciona tu 
           <i class="arrow-moveD fa fa-arrow-alt-circle-right mt-3"></i>
           <button type="button" data-toggle="modal" data-target="#modalPago" class="ml-3 mb-1 btn btn-secondary">metodo de pago</button>
@@ -141,7 +141,7 @@
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="modalLabel">Metodo de pago</h5>
+            <h5 class="modal-title text-info" id="modalLabel">Selecciona tu metodo de pago</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -169,12 +169,14 @@
               </label>
               <br><br>
               <label for="CVV" class="form-label"><i class="fa fa-lock mr-2"></i>CVV<br>
-                <input type="text" minlength="3" maxlength="3" id="CVV" placeholder="***"name="tarj" class="form-control sinfoco border-info border-top-0 border-left-0 border-right-0" style="width: 30%; padding-right: 2px;" required>
+                <input type="text" minlength="3" maxlength="3" id="cvv" placeholder="***"name="tarj" class="form-control sinfoco border-info border-top-0 border-left-0 border-right-0" style="width: 30%; padding-right: 2px;" required>
                 <div class="invalid-feedback">
                   Porfavor, ingrese el código de seguridad al dorso de su tarjeta.
                 </div>
               </label>
               <br><br>
+
+              <hr class="my-3">
 
               <!--CUENTA BANCARIA-->
               <label for="ctaBancRadio" class="text-info">

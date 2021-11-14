@@ -14,13 +14,27 @@ document.addEventListener("DOMContentLoaded", function(e){
     finalizarCompra();
   });
 
+  document.getElementById("pesos").addEventListener("click",()=>{
+    pesos(cartInfo);
+  });
+
+  document.getElementById("dolares").addEventListener("click",()=>{
+    dolares(cartInfo);
+  });
+
+  let tarjDatos = document.getElementsByName("tarj");
+  for(let i=0; i < tarjDatos.length; i++){
+    tarjDatos[i].disabled = true;
+  };
+  document.getElementById("cta-banc").disabled = true;
+
+
   /*for (let i=0;i<radioEnvio.length;i++){
     radioEnvio[i].addEventListener("click",()=>{
       cartCost();
     });
   };*/
-
-
+  
   //---------------------------TARJETA HABILITADA---------------------------------
   document.getElementById("tarjRadio").addEventListener("click",function(){
 
@@ -129,7 +143,7 @@ function cartCost(){
   for (let i=0; i < radioEnvio.length; i++){
     if(radioEnvio[i].checked){
       costEnvio += ((parseFloat(radioEnvio[i].value) / 100) * total);
-      document.getElementById("costEnv").innerHTML = "Costo"+" "+" "+ (costEnvio).toFixed(2);
+      document.getElementById("costEnv").innerHTML = `<b class="mr-2">Costo</b>`+ (costEnvio).toFixed(2);
     };
   };
 
@@ -144,39 +158,110 @@ function deleteart(i){
 };
 
 
+
+let envio = false;
+let tarj = false ;
+let cuenta = false;
+let modal = false;
+
 function finalizarCompra(){
 
-  const Toast = Swal.mixin({
-    toast: true,
-    position: 'bottom-end',
-    showConfirmButton: false,
-    timer: 3000,
-    timerProgressBar: true,
-    didOpen: (toast) => {
-      toast.addEventListener('mouseenter', Swal.stopTimer)
-      toast.addEventListener('mouseleave', Swal.resumeTimer)
-    }
-  });
+  let calle = document.getElementById("calle").value.trim();
+  let esq = document.getElementById("esquina").value.trim();
+  let numPuer = document.getElementById("numPuerta").value.trim();
+  let localidad = document.getElementById("localidad").value.trim();
 
-  Toast.fire({
-    icon: 'success',
-    title: '¡Compra realizada con éxito!'
-  });
+  let numTarj = document.getElementById("numTarj").value.trim();
+  let vencTarj = document.getElementById("vencTarj").value.trim();
+  let cvvTarj = document.getElementById("cvv").value.trim();
+
+  let cuentaBanc = document.getElementById("cta-banc").value.trim();  
+  
+  if (calle === "" || esq === "" || numPuer === "" || localidad === ""){
+    envio = false;
+  } else {
+    envio = true;
+  };
+
+  if(tarj){
+    if(numTarj === "" || vencTarj === "" || cvvTarj === ""){
+      modal = false;
+    } else {
+      modal = true;
+    };
+  };
+
+  if(cuenta){
+    if(cuentaBanc === ""){
+      modal = false;
+    } else {
+      modal = true;
+    };
+  };
+
+  if(envio && modal){
+    const Toast = Swal.mixin({
+      background: 'linear-gradient(rgb(255, 255, 255) ,rgb(195, 252, 195))',
+      toast: true,
+      position: 'bottom-end',
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer)
+        toast.addEventListener('mouseleave', Swal.resumeTimer)
+      }
+    });
+  
+    Toast.fire({
+      icon: 'success',
+      title: '¡Compra realizada con éxito!'
+    });
+  } else {                                            /* else */
+    const Toast = Swal.mixin({
+      background: 'linear-gradient(rgb(255, 255, 255) ,rgb(248, 209, 199))',
+      toast: true,
+      position: 'bottom',
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer)
+        toast.addEventListener('mouseleave', Swal.resumeTimer)
+      }
+    });
+  
+    Toast.fire({
+      icon: 'error',
+      title: 'Faltan campos por completar'
+    });
+  };
+};
+
+function pesos(cartInfo){
+
+  for(let i=0; i < cartInfo.articles.length; i++){
+    let item = cartInfo.articles[i];
+    if(item.currency === "USD"){
+      item.currency = "UYU";
+      item.unitCost = parseFloat(item.unitCost * 40);
+    };
+  };
+
+};
+
+function dolares(cartInfo){
+  for(let i=0; i < cartInfo.articles.length; i++){
+    let item = cartInfo.articles[i];
+    if(item.currency === "UYU"){
+      item.currency = "USD";
+      item.unitCost = parseFloat(item.unitCost / 40);
+    };
+  };
+
 };
 
 
-
-
-
-
-
-
-
-
-
-let cuenta = false;
-let tarj = false ;
-let modal = false;
 
 
 
