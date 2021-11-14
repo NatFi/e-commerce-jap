@@ -217,7 +217,7 @@ function finalizarCompra(){
       icon: 'success',
       title: '¡Compra realizada con éxito!'
     });
-  } else {                                            /* else */
+  } else {         /*********************/
     const Toast = Swal.mixin({
       background: 'linear-gradient(rgb(255, 255, 255) ,rgb(248, 209, 199))',
       toast: true,
