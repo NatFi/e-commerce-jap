@@ -1,3 +1,10 @@
+
+let envio = false;
+let tarj = false ;
+let cuenta = false;
+let modal = false;
+
+
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
@@ -22,6 +29,7 @@ document.addEventListener("DOMContentLoaded", function(e){
     dolares(cartInfo);
   });
 
+  
   let tarjDatos = document.getElementsByName("tarj");
   for(let i=0; i < tarjDatos.length; i++){
     tarjDatos[i].disabled = true;
@@ -46,6 +54,8 @@ document.addEventListener("DOMContentLoaded", function(e){
 
     document.getElementById("metPago").innerHTML = "a pagar con TARJETA";
     document.getElementById("form").classList.add("was-validated");
+    tarj = true;
+    cuenta = false;
   });
 
 
@@ -60,6 +70,10 @@ document.addEventListener("DOMContentLoaded", function(e){
 
     document.getElementById("metPago").innerHTML = "a pagar con CUENTA BANCARIA";
     document.getElementById("form").classList.add("was-validated");
+
+    tarj = false;
+    cuenta = true;
+    
   });
   
 });
@@ -158,18 +172,17 @@ function deleteart(i){
 };
 
 
-
-let envio = false;
-let tarj = false ;
-let cuenta = false;
-let modal = false;
-
 function finalizarCompra(){
+
+  /*let tarjDatos = document.getElementsByName("tarj");
+    for(let i=0; i < tarjDatos.length; i++){
+      tarjDatos[i].checked;
+    };
+  */
 
   let calle = document.getElementById("calle").value.trim();
   let esq = document.getElementById("esquina").value.trim();
   let numPuer = document.getElementById("numPuerta").value.trim();
-  let localidad = document.getElementById("localidad").value.trim();
 
   let numTarj = document.getElementById("numTarj").value.trim();
   let vencTarj = document.getElementById("vencTarj").value.trim();
@@ -177,7 +190,7 @@ function finalizarCompra(){
 
   let cuentaBanc = document.getElementById("cta-banc").value.trim();  
   
-  if (calle === "" || esq === "" || numPuer === "" || localidad === ""){
+  if (calle === "" || esq === "" || numPuer === ""){
     envio = false;
   } else {
     envio = true;
@@ -199,7 +212,7 @@ function finalizarCompra(){
     };
   };
 
-  if(envio && modal){
+  if(modal && envio){
     const Toast = Swal.mixin({
       background: 'linear-gradient(rgb(255, 255, 255) ,rgb(195, 252, 195))',
       toast: true,
@@ -237,6 +250,8 @@ function finalizarCompra(){
     });
   };
 };
+
+
 
 function pesos(cartInfo){
 

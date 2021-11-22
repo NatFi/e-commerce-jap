@@ -91,19 +91,19 @@
     <div class="row mt-1 mb-5">
       <div class="col-md-5 envio">
         <p class="card-header lead mt-3 mb-5 light-text bg-secondary">Forma de envío <small id="costEnv" class="pl-4 text-right">Seleccionar<i class="fa fa-arrow-alt-circle-down ml-1"></i></small></p>
-<!----> <form class="was-validated ml-5">
+<!----> <form class="was-validated ml-5"> 
           <label for="envPremium" class="mt-2 radioenvio">
-            <input id="envPremium" type="radio" name="envio" value="15" class="mr-1" onchange="cartCost();" required>
+            <input id="envPremium" type="radio" name="envio" value="15" class="mr-1" onchange="cartCost();">
             Premium: <b>2 a 5 días</b><small class="text-muted pl-1">+ 15%</small>
           </label>
           <br>
           <label for="envExpress" class="mt-2 radioenvio">
-            <input id="envExpress" type="radio" name="envio" value="7" class="mr-1" onchange="cartCost();" required>
+            <input id="envExpress" type="radio" name="envio" value="7" class="mr-1" onchange="cartCost();">
             Express: <b>5 a 8 días</b><small class="text-muted pl-1">+ 7%</small>
           </label>
           <br>
           <label for="envStandard" class="mt-2 radioenvio">
-            <input id="envStandard" type="radio" name="envio" value="5" class="mr-1" onchange="cartCost();" required>
+            <input id="envStandard" type="radio" name="envio" value="5" class="mr-1" onchange="cartCost();">
             Standard: <b>12 a 15 días</b><small class="text-muted pl-1">+ 5%</small>
           </label>
         </form>
@@ -112,11 +112,6 @@
       <div class="col-md-7 border-left">
         <p class="card-header lead mt-3 mb-4 light-text bg-secondary">Dirección de envío </p>
 <!----> <form class="was-validated">
-         <select id="localidad" class="custom-select mb-4 text-center" required>
-            <option value="">Selecciona tu localidad</option> 
-            <option value="">Montevideo</option>
-            <option value="">Argentina</option>
-          </select>
           <label for="calle" class="text-secondary">Calle: 
             <input id="calle" name="direcc"  type="text" class="form-control pl-2 sinfoco border-top-0 border-left-0 border-right-0" required>
           </label>
