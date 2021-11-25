@@ -91,14 +91,14 @@
     <div class="row mt-1 mb-5">
       <div class="col-md-5 envio">
         <p class="card-header lead mt-3 mb-5 light-text bg-secondary">Forma de envío <small id="costEnv" class="pl-4 text-right">Seleccionar<i class="fa fa-arrow-alt-circle-down ml-1"></i></small></p>
-<!----> <form class="was-validated ml-5"> 
+   <!-- <form class="was-validated ml-5"> -->
           <label for="envPremium" class="mt-2 radioenvio">
             <input id="envPremium" type="radio" name="envio" value="15" class="mr-1" onchange="cartCost();">
             Premium: <b>2 a 5 días</b><small class="text-muted pl-1">+ 15%</small>
           </label>
           <br>
           <label for="envExpress" class="mt-2 radioenvio">
-            <input id="envExpress" type="radio" name="envio" value="7" class="mr-1" onchange="cartCost();">
+            <input id="envExpress" type="radio" name="envio" value="7" class="mr-1" onchange="cartCost();" checked>
             Express: <b>5 a 8 días</b><small class="text-muted pl-1">+ 7%</small>
           </label>
           <br>
@@ -106,22 +106,26 @@
             <input id="envStandard" type="radio" name="envio" value="5" class="mr-1" onchange="cartCost();">
             Standard: <b>12 a 15 días</b><small class="text-muted pl-1">+ 5%</small>
           </label>
-        </form>
+   <!-- </form> -->
       </div>
       <!-------------------- DIRECCIÓN ENVIO  -------------------------->
       <div class="col-md-7 border-left">
         <p class="card-header lead mt-3 mb-4 light-text bg-secondary">Dirección de envío </p>
-<!----> <form class="was-validated">
+<!----> <form action="http://localhost:3000/data" method="post" class="was-validated" id="formDir">
           <label for="calle" class="text-secondary">Calle: 
-            <input id="calle" name="direcc"  type="text" class="form-control pl-2 sinfoco border-top-0 border-left-0 border-right-0" required>
+            <input id="calle" name="calle"  type="text" class="form-control pl-2 sinfoco border-top-0 border-left-0 border-right-0" required>
           </label>
           <label for="esquina" class="text-secondary">Esquina: 
-            <input id="esquina" name="direcc" type="text" class="form-control pl-2 sinfoco border-top-0 border-left-0 border-right-0" required>
+            <input id="esquina" name="esquina" type="text" class="form-control pl-2 sinfoco border-top-0 border-left-0 border-right-0" required>
           </label>
           <label for="numPuerta" class="text-secondary">Número de puerta: 
-            <input id="numPuerta" name="direcc" type="number" class="form-control pl-2 sinfoco border-top-0 border-left-0 border-right-0" required>
+            <input id="numPuerta" name="numPuerta" type="number" class="form-control pl-2 sinfoco border-top-0 border-left-0 border-right-0" required>
           </label>
-        </form>
+          <input type="hidden" id="user" name="user">
+          <input type="hidden" id="tipoEnvio" name="tipoEnvio">
+          <input type="hidden" id="totalCompra" name="totalCompra">
+          <input type="hidden" id="pago" name="pago">
+<!----> </form>
       </div>
       <!---------------------------->
       <div class="col-md-12 text-center a">
@@ -201,7 +205,7 @@
         <span class="text-secondary text-uppercase text-dark mr-3">Total:</span>
         <span class="monto mr-3" id="total"><!--monto total--></span>
         <span id="metPago"></span>
-        <button class="float-right mr-5 btn btn-outline-success" id="confirmarCompra">Confirmar compra</button>
+        <button id="confirmarCompra" type="submit" form="formDir" class="float-right mr-5 btn btn-outline-success">Confirmar compra</button>
       </div> 
     </div>
   </div>

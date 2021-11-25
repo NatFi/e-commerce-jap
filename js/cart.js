@@ -17,8 +17,9 @@ document.addEventListener("DOMContentLoaded", function(e){
     };
   });
 
-  document.getElementById("confirmarCompra").addEventListener("click", ()=>{
+  document.getElementById("confirmarCompra").addEventListener("submit", (e)=>{
     finalizarCompra();
+    e.preventDefault();
   });
 
   document.getElementById("pesos").addEventListener("click",()=>{
@@ -42,7 +43,14 @@ document.addEventListener("DOMContentLoaded", function(e){
       cartCost();
     });
   };*/
-  
+ 
+  //----------- NOMBRE EN INPUT ESCONDIDO PARA ENVIAR EN EL FORM  ----------------
+  let usuario = JSON.parse(localStorage.getItem("usuario"));
+	if(usuario !== null){
+	 document.getElementById("user").value = usuario.nombre; // nombre en perfil
+  };
+
+
   //---------------------------TARJETA HABILITADA---------------------------------
   document.getElementById("tarjRadio").addEventListener("click",function(){
 
@@ -53,6 +61,7 @@ document.addEventListener("DOMContentLoaded", function(e){
     document.getElementById("cta-banc").disabled = true;
 
     document.getElementById("metPago").innerHTML = "a pagar con TARJETA";
+    document.getElementById("pago").value = "tarjeta" // mando metPago en form
     document.getElementById("form").classList.add("was-validated");
     tarj = true;
     cuenta = false;
@@ -69,6 +78,7 @@ document.addEventListener("DOMContentLoaded", function(e){
     document.getElementById("cta-banc").disabled = false;
 
     document.getElementById("metPago").innerHTML = "a pagar con CUENTA BANCARIA";
+    document.getElementById("pago").value = "cuenta bancaria"; // mando metPago en form
     document.getElementById("form").classList.add("was-validated");
 
     tarj = false;
@@ -158,11 +168,15 @@ function cartCost(){
     if(radioEnvio[i].checked){
       costEnvio += ((parseFloat(radioEnvio[i].value) / 100) * total);
       document.getElementById("costEnv").innerHTML = `<b class="mr-2">Costo</b>`+ (costEnvio).toFixed(2);
+      document.getElementById("tipoEnvio").value = radioEnvio[i].id; // pongo el envio seleccionado al enviar el form
+                                                                     // use el id porqu tiene el nombre exacto de cada envio
+                                                                     // porque el name es igual en los tres radios y el value un numero 
     };
   };
 
   document.getElementById("total").innerHTML = (total + costEnvio).toFixed(2);
   document.getElementById("subt").innerHTML =  (total).toFixed(2);
+  document.getElementById("totalCompra").value = (total + costEnvio).toFixed(2); // mando el total en input escondido en el form
 };
 
 
@@ -173,12 +187,6 @@ function deleteart(i){
 
 
 function finalizarCompra(){
-
-  /*let tarjDatos = document.getElementsByName("tarj");
-    for(let i=0; i < tarjDatos.length; i++){
-      tarjDatos[i].checked;
-    };
-  */
 
   let calle = document.getElementById("calle").value.trim();
   let esq = document.getElementById("esquina").value.trim();
