@@ -30,12 +30,13 @@ document.addEventListener("DOMContentLoaded", function(e){
     dolares(cartInfo);
   });
 
-  
+  // campos deshabilitados de tarj y cuenta al abrir modal
   let tarjDatos = document.getElementsByName("tarj");
   for(let i=0; i < tarjDatos.length; i++){
     tarjDatos[i].disabled = true;
   };
   document.getElementById("cta-banc").disabled = true;
+  //---------------------------------------------------------
 
 
   /*for (let i=0;i<radioEnvio.length;i++){
